@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "claude-in-chrome": {
+      "type": "stdio",
+      "command": "claude-in-chrome-mcp",
+      "args": [],
+      "env": {},
+      "_comment": "Claude in Chrome MCP — drives the user's logged-in Chrome session for LinkedIn deep-reads, web discovery, and other browser-side research. Replace command path with the actual installed binary location for your system. Until installed, the researcher sub-agent will fall back to WebFetch + WebSearch for what it can fetch publicly."
+    }
+  }
+}

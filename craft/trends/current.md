@@ -1,0 +1,21 @@
+---
+timestamp: 2026-04-27T00:00:00Z
+sources_consulted: []
+trends_surviving_filter: 0
+candidates_dropped: 0
+status: placeholder
+---
+
+# Current trends
+
+*This file has not yet been populated by the `refresh-trends` skill.*
+
+Run `/refresh-trends` (or wait for Vendy to invoke `refresh-trends` autonomously when starting her first campaign) to populate this file with the current macro context — the security, engineering, and regulatory narratives currently shaping how senior buyers spend their week.
+
+## Why this matters
+
+Cold outreach without macro context is timeless, and timeless outreach reads as templated. The trends file is what allows Vendy's email to ride a wave the prospect is already on rather than asking them to start a new conversation from scratch.
+
+## What will live here after the first refresh
+
+The skill will populate this file with structured trend entries — each a 4-5 sentence summary of a current narrative, with evidence links, persona tags, and a suggested conversational hook. Past versions will be archived under `archive/`. Run reports (which sources were consulted, what was filtered out) will be saved under `runs/`.

@@ -1,0 +1,52 @@
+{
+  "lead_id": "artem-davydov-adapty",
+  "person": {
+    "name": "Artem Davydov",
+    "title": "Infra Team Lead and Staff Engineer (per his GitHub bio — ground truth; LinkedIn shows stale 'Head of Engineering' which is now Gregory's scope)",
+    "company": "Adapty.io",
+    "email": "adavydov@adapty.io",
+    "linkedin_url": "http://www.linkedin.com/in/artem-davydov-1087641bb"
+  },
+  "company": {
+    "name": "Adapty.io",
+    "industry": "Mobile subscription analytics + paywall SaaS",
+    "size": 120,
+    "stage": "Series A/B",
+    "icp_fit": "A — primary ICP"
+  },
+  "routing_rationale": "Operational owner of self-hosted Kubernetes cluster + post-FunnelFox PSP integrations. Formal academic security background (Siberian Federal University, OWASP/pentest methodology) — security vocabulary is native. Open-source DDD library on GitHub shows intellectual identity around architectural-drift prevention. Distinct angle from Kirill (architectural founder), Gregory (3-AM builder), Vitaly (commercial trust): operational drift between IaC declared state and effective cluster state, on his self-hosted k8s, post-FunnelFox.",
+  "research_summary": {
+    "linkedin_signal_strength": "low",
+    "trigger_event": "FunnelFox launch absorbed six PSP integrations into self-hosted Kubernetes cluster he runs — every PSP added IAM roles, secret stores, network policies declared in IaC. The Infrastructure Team Lead role being hired (April 2025) is EXPANSION, not backfill — Artem remains in role.",
+    "fallback_used": "individual",
+    "key_insight": "Title resolution: source CSV correct ('Infra Team Lead and Staff Engineer'); LinkedIn stale ('Head of Engineering'). His GitHub bio is ground truth — he controls it directly. Did not address as 'Head of Engineering'. Did not explain SOC 2 / OWASP / IaC drift to him (his degree). Did not pitch as CSPM replacement (he runs his own k8s deliberately; pattern-match to Calico/Falco/OPA would be detected). Did not quote his GitHub repos directly (surveillance edge). Did not project family connection to Vitaly."
+  },
+  "draft": {
+    "subject_line": "Reconciliation between IaC and cluster state",
+    "body": "The FunnelFox launch absorbed six PSP integrations into a self-hosted Kubernetes cluster in twelve days — every PSP added new IAM roles, new secret stores, new network policies, all declared in IaC and all subject to drift the moment the next iteration ships.\n\nThe reconciliation question — where IaC says X but the cluster and cloud actually do Y — doesn't usually surface until something breaks at the worst possible time, since static IaC checks run on a different cadence than the cluster's actual change rate.\n\nTransilience reconciles IaC-declared state against effective cluster state continuously — IAM, secrets, and network policy together — surfacing drift before it accumulates into incidents.\n\nHas declared-vs-effective checking been pulled into the deploy pipeline, or is it still incident-driven?",
+    "voice_register_used": "dry-precise",
+    "length_sentences": 4,
+    "architecture": "signal-to-question — operational triangulation in opener (FunnelFox + 6 PSPs + self-hosted k8s + IaC), names the reconciliation gap (declared X vs actual Y), product sentence anchored in IAM/secrets/network policy specificity, binary technical CTA"
+  },
+  "witness": {
+    "verdict": "ship",
+    "verdict_history": [
+      {"version": "v1", "verdict": "ship", "reason": "Strongest CTA of the four Adapty drafts. Correctly assumes security-vocabulary fluency throughout. Binary CTA ('pipeline or incident-driven?') is a real engineering question that invites a substantive answer."}
+    ],
+    "what_works": "Operational triangulation in opener uses concrete public artifacts (FunnelFox + 6 PSPs + self-hosted k8s). Names the reconciliation problem in his exact intellectual frame (declared X vs actual Y — same gap his DDD library exists to prevent in code). 'Reconciles' verb is distinct from extends/does/handling. CTA is a real engineering binary that invites a one-line answer.",
+    "what_fails": "'Twelve days' anchor still appears here (and in Kirill) — 2/4 Adapty drafts. Acceptable given it's a factual anchor for the operational pace question, not a stylistic tic."
+  },
+  "ready_to_send": true,
+  "human_review_required": false,
+  "review_flags": [
+    "coordinate-across-adapty-leads: see _company-summary.md",
+    "artem-vitaly-relationship: shared surname (Davydov) + shared pre-Adapty employer (Poteha Labs). Family/professional-colleague connection unconfirmed. Sequence sends accordingly."
+  ],
+  "artifacts": {
+    "research_notes": "experience/prospects/artem-davydov-adapty/research-notes.md",
+    "psychological_portrait": "experience/prospects/artem-davydov-adapty/psychological-portrait.md",
+    "drafts": ["experience/prospects/artem-davydov-adapty/drafts/v1.md"],
+    "witness_feedback": "experience/campaigns/2026-04-30-transilience-security-os-saas/companies/adapty/_witness-cross-draft-review.md",
+    "final": "experience/prospects/artem-davydov-adapty/final.md"
+  }
+}

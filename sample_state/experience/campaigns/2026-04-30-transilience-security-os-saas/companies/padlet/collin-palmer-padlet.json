@@ -1,0 +1,53 @@
+{
+  "lead_id": "collin-palmer-padlet",
+  "person": {
+    "name": "Collin Palmer",
+    "title": "Senior Product Manager",
+    "company": "Padlet",
+    "email": "collinpalmer@padlet.com",
+    "linkedin_url": "http://www.linkedin.com/in/collinpalmer160"
+  },
+  "company": {
+    "name": "Padlet",
+    "industry": "Education technology",
+    "size": 78,
+    "stage": "Bootstrapped / founder-led",
+    "icp_fit": "A — primary ICP"
+  },
+  "routing_rationale": "AI/Education PM — owns Padlet TA and Arcade specifically. The PM-Schools role is currently open and unfilled, making Collin the closest PM to the Arcade-DPA-coverage trigger. Originally flagged as long-shot routing, but research surfaced a Type 1 trigger (his own recent voice on the exact safety architecture). Distinct angle: product-level documentation cadence — the gap between iterating-fast on the safety layer and being-documentable for district vendor assessment.",
+  "research_summary": {
+    "linkedin_signal_strength": "high",
+    "trigger_event": "Collin's recent (~March 2026) LinkedIn comment in his own voice, fielding educator safety questions about Arcade: 'We safeguard via prompt on the input side and review with an LLM on the output' + 'we'll improve the LLM review this week.' This is a Type 1 trigger — prospect's own recent statement, on the exact product creating the compliance question.",
+    "fallback_used": "individual",
+    "key_insight": "Did NOT quote his comment verbatim — paraphrased the architecture in different vocabulary ('two-layer safety architecture', 'pre-generation filtering', 'post-generation review') so the email demonstrates careful reading without echoing his words. Witness flagged v1 opener for being too close to quoting; v2 opened the technical-vocabulary distance further. Did not pitch above his authority (he doesn't sign vendor contracts) — the email's job is to engage with his stated work and start a real exchange about documentation cadence."
+  },
+  "draft": {
+    "subject_line": "Arcade safety documentation cadence",
+    "body": "The two-layer safety architecture you've been iterating on for Arcade — pre-generation filtering plus post-generation review — is also the architecture a careful district vendor assessment will eventually ask documentation on: which thresholds are stable, which are still moving, and what's been changing week-to-week.\n\nKeeping that documentation in sync with the iteration — surface by surface — is the architectural choice that makes both fast iteration and clean district vendor assessments possible.\n\nTransilience keeps that documentation layer in step with what's deployed — even with weekly iteration.\n\nHow is the team currently handling Arcade safety documentation?",
+    "voice_register_used": "warm-observational",
+    "length_sentences": 4,
+    "architecture": "signal-to-question — paraphrases his stated architecture in different vocabulary, names the documentation-cadence question that follows, one product sentence (concrete: 'in step with what's deployed'), one open question CTA"
+  },
+  "witness": {
+    "verdict": "ship",
+    "verdict_history": [
+      {"version": "v1", "verdict": "rewrite", "reason": "Opener paraphrased too close to his LinkedIn words ('prompt safeguards on input, LLM review on output'); preempt-pivot template structure in middle sentence; CTA was rhetorical with only one honest answer; wh-cleft 'Where Transilience sits is' echoed Nitesh's wh-cleft."},
+      {"version": "v2", "verdict": "rewrite", "reason": "Subject 'The documentation gap behind Arcade safety' named a deficit + 'gap' echoed Audrey's draft. Transilience sentence too dense ('attestation surface / product surface' parallel too abstract). CTA trailing 'as the iteration pace continues' was a leading nudge."},
+      {"version": "v3", "verdict": "ship", "reason": "Subject reset to flat-technical 'Arcade safety documentation cadence' — no deficit, no 'gap'. Transilience sentence concrete and short ('in step with what's deployed'). CTA stripped to single open question."}
+    ],
+    "what_works": "Opener paraphrases his stated architecture in different technical vocabulary — demonstrates careful reading without verbatim quoting. Subject is flat technical, no deficit-naming. Product sentence is the shortest of the four Padlet drafts (17 words), concrete object ('what's deployed'). CTA is genuinely open, doesn't pre-judge.",
+    "what_fails": "The opener is the longest sentence in the email and densely loaded — three concrete details (architecture pieces, district vendor assessment, three documentation-question shapes). A scanning reader could bail before the second paragraph. Acceptable because Collin is the lead with the strongest individual trigger (his own recent LinkedIn voice on the exact topic) — the email earns the reader's attention on substance."
+  },
+  "ready_to_send": true,
+  "human_review_required": false,
+  "review_flags": [
+    "coordinate-across-padlet-leads: see Nitesh's flag"
+  ],
+  "artifacts": {
+    "research_notes": "experience/prospects/collin-palmer-padlet/research-notes.md",
+    "psychological_portrait": "experience/prospects/collin-palmer-padlet/psychological-portrait.md",
+    "drafts": ["experience/prospects/collin-palmer-padlet/drafts/v1.md", "experience/prospects/collin-palmer-padlet/drafts/v2.md", "experience/prospects/collin-palmer-padlet/drafts/v3.md"],
+    "witness_feedback": "experience/campaigns/2026-04-30-transilience-security-os-saas/companies/padlet/_witness-cross-draft-review.md",
+    "final": "experience/prospects/collin-palmer-padlet/final.md"
+  }
+}

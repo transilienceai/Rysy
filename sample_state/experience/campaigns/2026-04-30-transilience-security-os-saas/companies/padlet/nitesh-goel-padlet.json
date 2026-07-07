@@ -1,0 +1,53 @@
+{
+  "lead_id": "nitesh-goel-padlet",
+  "person": {
+    "name": "Nitesh Goel",
+    "title": "Founder and CEO",
+    "company": "Padlet",
+    "email": "nitesh@padlet.com",
+    "linkedin_url": "http://www.linkedin.com/in/doodlebug"
+  },
+  "company": {
+    "name": "Padlet",
+    "industry": "Education technology / collaboration SaaS (K-12 + higher-ed heavy)",
+    "size": 78,
+    "stage": "Bootstrapped / founder-led, founded 2008",
+    "icp_fit": "A — primary ICP (78 emp, edtech with sensitive student data, no CISO, founder-led)"
+  },
+  "routing_rationale": "Founder-CEO at an indie 78-person edtech, eighteen years in. The architectural decisions land on his desk personally. Distinct angle: the Arcade DPA coverage gap as an architectural choice (DPA-addendum-by-addendum vs continuous evidence). Distinct from Audrey (operational laborer angle), Linh (engineering moderation angle), Collin (product-level documentation cadence angle).",
+  "research_summary": {
+    "linkedin_signal_strength": "med",
+    "trigger_event": "Padlet Arcade launch (early 2026) at arcade.padlet.com — free public beta AI learning games platform, runs without student login. Existing Padlet DPA library covers padlet.com but does not list Arcade as a covered product. Combined with SOC 2 Type 1 only (since Jan 2023, no Type 2) and the broader certification stack (1EdTech, Common Sense Privacy Seal, ST4S, EU-U.S. DPF re-cert), this is the live operational gap.",
+    "fallback_used": "individual",
+    "key_insight": "Builder-founder, sparse public presence (LinkedIn handle 'doodlebug', not personal-brand-built). Data-ethics line is decades old: 'We don't sell or misuse your data.' Did not flatter the indie/lean story (he says it himself). Did not lecture data ethics (he's been articulating it since 2008). Did not pitch SOC 2 Type 2 as a deliverable (he chose not to invest there for a reason). The email names the operational consequence of his architectural decision; lets him decide the fix."
+  },
+  "draft": {
+    "subject_line": "Arcade and existing district DPAs",
+    "body": "Padlet Arcade shipped as a free public beta on a new subdomain without student login. Existing district DPAs covering padlet.com don't list Arcade as a covered product, which surfaces the moment a careful district legal team reviews a renewal.\n\nThe architectural call this makes visible: each launch becomes a DPA-addendum negotiation, or the compliance evidence gets generated continuously enough that new surfaces inherit it.\n\nTransilience handles the second path — continuous evidence that sits alongside, not replacing, your existing certification work.\n\nWhere does Arcade sit in the DPA roadmap?",
+    "voice_register_used": "dry-precise",
+    "length_sentences": 4,
+    "architecture": "signal-to-question — three concrete public facts (subdomain, free beta, no student login) + verifiable artifact (DPA library doesn't list Arcade), architectural choice named without forcing the answer, single product sentence, single open question CTA"
+  },
+  "witness": {
+    "verdict": "ship",
+    "verdict_history": [
+      {"version": "v1", "verdict": "rewrite", "reason": "Cert-stack enumeration ('1EdTech / Common Sense / ST4S') read as keyword-stuffing; wh-cleft 'What we built Transilience around' echoed Collin's 'Where Transilience sits is'; 'Each new product surface' verbatim repeat with Audrey; em-dash binary CTA shape across all four Padlet drafts."},
+      {"version": "v2", "verdict": "ship-with-fix", "reason": "All five v1 flags resolved. Minor 'right now' terminal echo with Linh — one-word fix."},
+      {"version": "v3", "verdict": "ship", "reason": "'right now' dropped. Present tense already carried the temporal signal. Cross-draft echo eliminated."}
+    ],
+    "what_works": "Subject is flat technical, names two concrete artifacts (Arcade, district DPAs). Opener triangulates three concrete facts to ground the email's existence. Architectural choice named cleanly without lecturing. Single product sentence. Single open question CTA — doesn't pre-judge, doesn't binary-trap.",
+    "what_fails": "Cert-stack preempt softened to 'your existing certification work' rather than enumerated — modest risk that the implicit category-positioning is too soft for a sophisticated reader who runs the actual stack."
+  },
+  "ready_to_send": true,
+  "human_review_required": false,
+  "review_flags": [
+    "coordinate-across-padlet-leads: four contacts at one 78-person org. Sequence the sends across at least 8 weeks; do not blast"
+  ],
+  "artifacts": {
+    "research_notes": "experience/prospects/nitesh-goel-padlet/research-notes.md",
+    "psychological_portrait": "experience/prospects/nitesh-goel-padlet/psychological-portrait.md",
+    "drafts": ["experience/prospects/nitesh-goel-padlet/drafts/v1.md", "experience/prospects/nitesh-goel-padlet/drafts/v2.md", "experience/prospects/nitesh-goel-padlet/drafts/v3.md"],
+    "witness_feedback": "experience/campaigns/2026-04-30-transilience-security-os-saas/companies/padlet/_witness-cross-draft-review.md",
+    "final": "experience/prospects/nitesh-goel-padlet/final.md"
+  }
+}

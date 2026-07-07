@@ -1,0 +1,37 @@
+# Claude Code local overrides
+.claude/settings.local.json
+.claude/.diff-in-progress
+.claude/.last-session-start
+
+# Vendy private memory in the LIVE root instance — contains personal data
+# about prospects. Anchored to the repo root (leading slash) so it does NOT
+# also ignore the curated snapshot under sample_state/, which is intentionally
+# committed (private repo). Keep the README/.gitkeep so the folder shape shows.
+/experience/prospects/*
+!/experience/prospects/README.md
+!/experience/prospects/INDEX.md
+!/experience/prospects/.gitkeep
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Temp
+*.tmp
+/tmp/
+
+# Logs (other than committed run-logs)
+*.log

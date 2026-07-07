@@ -1,0 +1,51 @@
+{
+  "campaign_id": "2026-04-27-transilience-gdpr-billtrust",
+  "generated_at": "2026-04-27T00:00:00Z",
+  "agent": "vendy",
+  "results": [
+    {
+      "lead_id": "ankit-taneja-billtrust",
+      "status": "drafted",
+      "skip_reason": null,
+      "research_summary": {
+        "linkedin_signal_strength": "low",
+        "trigger_event": "Collections Agentic Procedures (Billtrust autonomous AI for EU AR workflows, launched November 2025); operationalizes Ankur Ahuja's (CISO) public AI-data-governance position",
+        "fallback_used": "company"
+      },
+      "draft": {
+        "subject_line": "Article 33 after the Agentic Procedures launch",
+        "body": "Collections Agentic Procedures has been running on EU enterprise AR data since November — autonomous agents acting on the personal data of your customers' data subjects. Your enterprise customers' 72-hour clock to their authorities is paced by how fast your detection-to-evidence pipeline hands them what they need, and an agent as the actor changes the shape of that evidence.\n\nCurious how the SOC-to-DPO handoff is structured at Billtrust currently — whether the agent-action audit trail is a property of how the platform runs or something reconstructed after the page-out. Transilience treats security operations as continuous evaluation against live cloud state, so an agent's actions and the data they touched live in working memory rather than something forensics has to rebuild. Worth fifteen minutes to compare notes if I'm reading the shape right?",
+        "voice_register_used": "dry-precise",
+        "length_sentences": 5
+      },
+      "witness": {
+        "verdict": "ship",
+        "what_works": "Hook factually grounded (Collections Agentic Procedures, Nov 2025) and logically connected to the body's claim (autonomous agents acting on personal data genuinely change the shape of breach forensics evidence the processor must hand the controller for Art. 33). Processor-side semantics held cleanly throughout: 'your enterprise customers' 72-hour clock to their authorities' correctly places the notification obligation on the controller. No AI tells. Dry-precise register held.",
+        "what_fails": "The Transilience capability sentence is the riskiest sentence — the only moment the email shifts from inquiry to product positioning. Earns its place narrowly by giving the reader reason to believe the conversation would be substantive, but is the line most likely to trigger 'this is a vendor' triage. Does not warrant rewrite, but worth knowing."
+      },
+      "ready_to_send": true,
+      "human_review_required": false,
+      "review_flags": ["buyer-fit-uncertain: Ankit is a plausible secondary buyer for an operational GDPR angle; the primary buyer for a strategic GDPR pitch would be Ankur Ahuja (CISO) or Aynur Tiftikci (DPO Belgium). v2 narrows the angle to the SOC-side audit-trail problem created by autonomous agents, which is more squarely on Ankit's desk than the Article 32 governance question would have been. Routing risk is reduced but not eliminated."],
+      "revision_history": [
+        {
+          "version": "v1",
+          "verdict": "ship",
+          "superseded_reason": "Post-ship reviewer caught four structural issues: (1) Belgium e-invoicing recency anchor did not materially expand Article 33 exposure (recency without logical connection); (2) phrasing collapsed Article 33 obligation onto Billtrust, eliding controller/processor distinction; (3) 'routing through' overstated Deloitte's role; (4) 'not in Ghent' was fragile geographic shorthand. v2 replaces the hook with Collections Agentic Procedures (the operational expression of Ahuja's public AI-governance narrative) and holds processor-side semantics implicitly. Five atomic notes filed in craft/notes/."
+        },
+        {
+          "version": "v2",
+          "verdict": "ship",
+          "superseded_reason": null
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_leads": 1,
+    "drafted": 1,
+    "skipped": 0,
+    "flagged": 0,
+    "notes_added": 5,
+    "patterns_promoted": 0
+  }
+}

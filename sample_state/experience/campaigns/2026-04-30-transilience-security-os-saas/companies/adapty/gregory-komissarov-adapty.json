@@ -1,0 +1,52 @@
+{
+  "lead_id": "gregory-komissarov-adapty",
+  "person": {
+    "name": "Gregory Komissarov",
+    "title": "Head of Development (NOT CTO — source CSV had data-scraper artifact; Kirill Potekhin is the actual CTO)",
+    "company": "Adapty.io",
+    "email": "gkomissarov@adapty.io",
+    "linkedin_url": "http://www.linkedin.com/in/gregory-komissarov"
+  },
+  "company": {
+    "name": "Adapty.io",
+    "industry": "Mobile subscription analytics + paywall SaaS",
+    "size": 120,
+    "stage": "Series A/B",
+    "icp_fit": "A — primary ICP"
+  },
+  "routing_rationale": "Career: Yandex load-testing → Wrike (70-person infra org) → Tango VP Infra → SOAX VP/CTO → Adapty Head of Development. Hands-on engineer who runs large infra orgs while still shipping code. Sole side project: oack.io, a monitoring SaaS he built because existing tools 'stopped at the HTTP layer.' Distinct angle from Kirill (architectural founder): execution-layer / 3-AM-on-call honesty, framed at the secret-scoping-rotation layer specifically (where oack does NOT go).",
+  "research_summary": {
+    "linkedin_signal_strength": "med",
+    "trigger_event": "FunnelFox launch absorbed six PSP integrations into self-hosted Kubernetes cluster he manages. Two engineering-lead roles open simultaneously (Engineering Team Lead Product + Team Lead Infrastructure) + Backend Developer Python — capacity strain post-FunnelFox.",
+    "fallback_used": "individual",
+    "key_insight": "Builder identity, not buyer. Email engages his builder-engineer self by explicitly naming oack.io as the layer Transilience does NOT replicate (build-vs-buy honesty). His own self-hosted-k8s deliberate-control choice means CSPM-replacement framing would fail. The angle is the secret-scoping-and-rotation layer — adjacent to oack but below it."
+  },
+  "draft": {
+    "subject_line": "PSP credential state on self-hosted k8s",
+    "body": "Six PSPs absorbed into a self-hosted k8s cluster after the FunnelFox launch is the kind of integration where the credential-state of each PSP — keys, rotation, scoped roles, secret ages — accretes faster than anyone declares a baseline against.\n\nWhat that exposes operationally isn't at the request/response layer (which oack and the rest of the observability stack already cover) — it's at the secret-scoping-and-rotation layer, surfaced before something fails on rotation week.\n\nTransilience does that part — IAM policy, credential rotation, and cluster-side secret scoping baselined live, additive to whatever observability already runs.\n\nHow is credential state currently tracked at the cluster level?",
+    "voice_register_used": "dry-precise",
+    "length_sentences": 4,
+    "architecture": "signal-to-question — explicit build-vs-buy boundary (oack covers HTTP layer, Transilience covers secret-scoping layer)"
+  },
+  "witness": {
+    "verdict": "ship",
+    "verdict_history": [
+      {"version": "v1", "verdict": "ship", "reason": "oack.io parenthetical was the strongest single move across all four Adapty drafts — acknowledges his tool's competence at its layer and draws a clean boundary to the adjacent layer."},
+      {"version": "v2", "verdict": "ship", "reason": "Cross-draft fixes: 'in twelve days' replaced with 'after the FunnelFox launch' (event anchor fits him better than speed metric), 'continuously baselined' → 'baselined live' (more precise engineering vocabulary, baseline-against-running-state)."}
+    ],
+    "what_works": "Subject in his stack vocabulary. oack.io named explicitly to draw the build-vs-buy boundary. Product sentence is structurally distinct from Kirill (does vs extends), Vitaly (handling), Artem (reconciles). 'Rotation week' is appropriate engineer vocabulary. CTA opens with How (vs Kirill's What, Vitaly's Where, Artem's Has).",
+    "what_fails": "Residual minor seam: 'is the kind of' opener appears in both Gregory and Kirill drafts. Non-blocking."
+  },
+  "ready_to_send": true,
+  "human_review_required": false,
+  "review_flags": [
+    "coordinate-across-adapty-leads: see _company-summary.md"
+  ],
+  "artifacts": {
+    "research_notes": "experience/prospects/gregory-komissarov-adapty/research-notes.md",
+    "psychological_portrait": "experience/prospects/gregory-komissarov-adapty/psychological-portrait.md",
+    "drafts": ["experience/prospects/gregory-komissarov-adapty/drafts/v1.md", "experience/prospects/gregory-komissarov-adapty/drafts/v2.md"],
+    "witness_feedback": "experience/campaigns/2026-04-30-transilience-security-os-saas/companies/adapty/_witness-cross-draft-review.md",
+    "final": "experience/prospects/gregory-komissarov-adapty/final.md"
+  }
+}

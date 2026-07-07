@@ -1,0 +1,80 @@
+# refresh-trends source configuration
+# Editable. Add or remove sources without modifying skill logic.
+
+newsletters:
+  - name: "Risky Business"
+    url: "https://risky.biz/feeds/"
+    type: rss
+    weight: high
+  - name: "tl;dr sec"
+    url: "https://tldrsec.com/"
+    type: web
+    weight: high
+  - name: "Pragmatic Engineer"
+    url: "https://newsletter.pragmaticengineer.com/"
+    type: web
+    weight: high
+  - name: "Last Week in AWS"
+    url: "https://www.lastweekinaws.com/newsletter/"
+    type: web
+    weight: medium
+  - name: "Stratechery"
+    url: "https://stratechery.com/feed/"
+    type: rss
+    weight: medium
+  - name: "A Smart Bear"
+    url: "https://longform.asmartbear.com/"
+    type: web
+    weight: medium
+
+reddit:
+  - subreddit: netsec
+    timeframe: week
+    sort: top
+  - subreddit: devops
+    timeframe: week
+    sort: top
+  - subreddit: sysadmin
+    timeframe: week
+    sort: top
+  - subreddit: cybersecurity
+    timeframe: week
+    sort: top
+
+hackernews:
+  - feed: top
+    filter_keywords: [security, ciso, cto, vulnerability, breach, incident, cloud, infrastructure, ai, llm, devops, sre, kubernetes]
+    timeframe: week
+
+github_trending:
+  - language: any
+    timeframe: week
+    filter_topics: [security, infrastructure, devsecops, observability]
+
+conferences:
+  # Update quarterly
+  - name: "RSA"
+    agenda_url: "https://www.rsaconference.com/usa/agenda"
+  - name: "Black Hat USA"
+    agenda_url: "https://www.blackhat.com/us-26/briefings.html"
+  - name: "KubeCon NA"
+    agenda_url: "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/"
+  - name: "SREcon"
+    agenda_url: "https://www.usenix.org/srecon"
+
+cve:
+  - source: "NVD"
+    cvss_threshold: 7.0
+    timeframe: 14_days
+
+sec_filings:
+  - filter: "8-K"
+    keywords: [cyber, breach, incident, security event, ransomware]
+    timeframe: 30_days
+
+practitioner_voices:
+  # Curated list — names redacted in the public scaffold; populate per organization
+  # Each entry is a person whose long-form writing reliably moves discourse
+  - name: "<populate per org>"
+    platform: linkedin
+    username: ""

@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendy — Reference</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Corinthia:wght@400;700&family=JetBrains+Mono:wght@400;500&display=block');
+
+/* ===== TRANSILIENCE DESIGN TOKENS (from sales-doc globals.css) ===== */
+:root{
+  --brand:#6941C6; --brand-600:#5938A8; --brand-700:#382466; --brand-200:#C2ABF7;
+  --brand-100:#E9DFFD; --brand-50:#F5EFFF; --accent-pink:#E5347C; --accent-amber:#F9C846;
+  --ink:#171817; --text:#302D36; --text-muted:#6B6571; --text-faint:#9C97A3;
+  --line:#E8E5EF; --line-strong:#D5D0DD; --surface:#FFFFFF; --surface-2:#FAFAFC; --surface-3:#F4F2F8;
+  --dark:#060105; --dark-2:#1A1320;
+  --ok:#38A250; --warn:#FFCF0F; --err:#CB2E28; --info:#238EF1; --critical:#E5347C; --high:#F08C2E;
+  --font-sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-display:"Space Grotesk","Inter",sans-serif;
+  --font-script:"Corinthia",cursive;
+  --font-mono:"JetBrains Mono","SFMono-Regular",ui-monospace,monospace;
+  --r-sm:8px; --r:12px; --r-md:16px; --r-lg:24px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+html,body{margin:0;padding:0}
+body{ font-family:var(--font-sans); font-size:15px; line-height:1.6; color:var(--text); background:var(--surface-2); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+h1,h2,h3,h4,h5{font-family:var(--font-display);color:var(--ink);margin:0;letter-spacing:-0.02em;line-height:1.15;font-weight:600}
+h1{font-size:48px;letter-spacing:-0.035em}
+h2{font-size:30px}
+h3{font-size:18px;margin-top:1.1em}
+h4{font-size:14px}
+p{margin:0 0 1em}
+strong,b{color:var(--ink);font-weight:600}
+em,i{font-style:italic}
+a{color:var(--brand-600);text-decoration:none}
+ul,ol{margin:0 0 1em;padding-left:1.2em}
+ul li,ol li{margin-bottom:.4em}
+code,kbd{font-family:var(--font-mono);font-size:.88em;background:var(--surface-3);padding:1px 5px;border-radius:5px;color:var(--brand-700)}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+.script{font-family:var(--font-script);color:var(--brand);font-weight:400}
+.muted{color:var(--text-muted)}
+
+/* ===== PAGE / SHEET ===== */
+.sheet{ width:8.5in; margin:0 auto; background:var(--surface); }
+.page{ width:8.5in; margin:0 auto; background:var(--surface); padding:0.5in 0.72in 0.5in; position:relative; }
+
+/* ===== COVER ===== */
+.cover-sheet{padding:0}
+.cover{
+  height:11in; display:flex; flex-direction:column; justify-content:space-between;
+  padding:0.85in 0.9in;
+  background:radial-gradient(ellipse 1200px 600px at 110% -10%, rgba(105,65,198,.55), transparent 60%),
+             radial-gradient(ellipse 800px 500px at -10% 110%, rgba(229,52,124,.35), transparent 55%),
+             linear-gradient(160deg,#0E0613 0%,#1A0E26 100%);
+  color:#fff; position:relative;
+}
+.cover::after{ content:""; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:14px 14px; pointer-events:none; }
+.cover .topbar{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.cover .logo{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;letter-spacing:-0.02em;font-size:18px}
+.infinity-mark{display:inline-block;background:url("assets/logo.png") no-repeat center/contain transparent}
+.cover .infinity-mark{width:38px;height:19px}
+.cover .label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#C2ABF7}
+.cover .hero{position:relative;z-index:2}
+.cover-eyebrow{font-family:var(--font-display);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#FFA3CB;font-weight:700;margin-bottom:22px}
+.cover-title{font-size:104px;line-height:.9;letter-spacing:-0.045em;color:#fff;font-weight:600;margin:0 0 26px}
+.cover-title .dot{color:#FFA3CB}
+.cover .lede{font-size:24px;line-height:1.4;color:#E0D8EC;max-width:6in;margin:0}
+.cover .cover-meta{font-size:13.5px;line-height:1.6;color:#B4A9CC;max-width:5.2in;margin-top:26px}
+.cover .footer-row{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;font-size:12px;color:#C2ABF7;letter-spacing:.05em}
+.cover .footer-row .meta{display:grid;grid-template-columns:auto auto;gap:6px 26px}
+.cover .footer-row .meta dt{color:#867BA0;text-transform:uppercase;letter-spacing:.18em;font-size:10px}
+.cover .footer-row .meta dd{margin:0;color:#fff;font-weight:500}
+
+/* ===== SECTION TITLE ===== */
+.section-title{display:flex;align-items:baseline;gap:14px;margin:0 0 18px;padding-top:6px;
+  border-top:2px solid transparent;border-image:linear-gradient(90deg,#5938A8 0%,#A8307E 45%,#B82E5C 55%,#CB2E28 100%) 1}
+.section-title .num{font-family:var(--font-display);font-size:12px;color:#fff;letter-spacing:.16em;font-weight:700;
+  padding:4px 11px;background:linear-gradient(90deg,#5938A8 0%,#A8307E 60%,#CB2E28 100%);border-radius:999px;display:inline-block;flex:none}
+.section-title h2{margin:0;font-weight:700;letter-spacing:-0.018em}
+.section-lede{font-size:16px;color:var(--text-muted);max-width:6.2in;margin:0 0 22px}
+
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-600);font-weight:600;margin-bottom:10px}
+.kicker{font-family:var(--font-script);color:var(--brand);font-size:34px;line-height:1;margin:0}
+h4.blockhead{font-family:var(--font-display);font-size:16px;color:var(--ink);margin:1.4em 0 .5em;font-weight:600}
+.subhead{font-family:var(--font-sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-700);font-weight:600;margin:1.2em 0 .5em}
+
+/* ===== NOTE / CALLOUT / PULLQUOTE ===== */
+.note{background:var(--surface-3);border-left:3px solid var(--brand-200);padding:12px 16px;border-radius:0 var(--r) var(--r) 0;margin:14px 0;color:var(--text);font-size:13.5px}
+.note .nb{font-weight:600;color:var(--brand-700);text-transform:uppercase;font-size:11px;letter-spacing:.12em;margin-right:8px}
+.callout{background:linear-gradient(180deg,#FBF7FF,#F4ECFF);border:1px solid var(--brand-100);border-radius:var(--r-md);padding:14px 18px;margin:16px 0}
+.callout h4{margin:0 0 6px;color:var(--brand-700)}
+.pullquote{font-family:var(--font-display);font-size:22px;line-height:1.32;color:var(--ink);border-left:4px solid var(--brand);padding:6px 0 6px 22px;margin:22px 0 6px;letter-spacing:-0.01em;font-weight:500}
+.attrib{color:var(--text-muted);font-size:12.5px;margin:0}
+
+/* ===== TABLE ===== */
+table.t{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0 4px}
+table.t th{text-align:left;font-family:var(--font-display);font-weight:600;color:var(--brand-700);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-bottom:1.5px solid var(--brand-100)}
+table.t td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{white-space:nowrap;width:2.0in}
+table.t td.k code, .path{font-family:var(--font-mono);font-size:11.5px;color:var(--brand-700);background:none;padding:0}
+table.t td.wide{width:auto}
+
+/* ===== CARDS / GRID ===== */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.feature-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.feature-card.primary{border-color:var(--brand-200);background:linear-gradient(180deg,#FBF7FF,#fff)}
+.feature-card h4{font-family:var(--font-display);font-size:15px;color:var(--ink);margin:0 0 2px}
+.feature-card .path{display:block;margin-bottom:8px;font-size:11px}
+.feature-card p{margin:0 0 .5em;font-size:13px}
+.feature-card .io{font-size:11.5px;color:var(--text-muted);margin:2px 0 0;font-family:var(--font-mono)}
+
+/* ===== KV / STEPLIST ===== */
+.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:13.5px;margin:8px 0}
+.kv dt{color:var(--brand-700);font-weight:600;font-family:var(--font-mono);font-size:12px}
+.kv dd{margin:0;color:var(--text)}
+.steplist{counter-reset:step;list-style:none;padding:0;margin:10px 0 0}
+.steplist li{counter-increment:step;padding:10px 14px 10px 46px;border:1px solid var(--line);background:#fff;border-radius:var(--r);position:relative;margin-bottom:8px;font-size:13px}
+.steplist li::before{content:counter(step);position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:600;font-family:var(--font-display)}
+.steplist.alpha{counter-reset:none}
+.steplist li .lbl{font-weight:600;color:var(--ink);display:block;margin-bottom:2px}
+.steplist li .snum{position:absolute;left:8px;top:10px;width:30px;height:22px;border-radius:11px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:600;font-family:var(--font-display)}
+.steplist.alpha li{padding-left:52px}
+.steplist.alpha li::before{content:none}
+
+/* ===== RULES ===== */
+.rules{list-style:none;padding:0;margin:8px 0 0;counter-reset:rule}
+.rules li{counter-increment:rule;position:relative;padding:0 0 14px 46px;margin:0}
+.rules li::before{content:counter(rule,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:var(--font-display);font-weight:700;font-size:15px;
+  background:linear-gradient(90deg,#5938A8,#CB2E28);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rules li .r{font-weight:600;color:var(--ink)}
+.rules li .why{display:block;color:var(--text-muted);font-size:13px;margin-top:3px}
+
+/* ===== CODE BLOCK ===== */
+pre.code{font-family:var(--font-mono);font-size:11.5px;line-height:1.5;background:var(--surface-3);border:1px solid var(--line);border-left:3px solid var(--brand-200);border-radius:var(--r);padding:14px 16px;margin:12px 0;color:var(--text);white-space:pre;overflow-x:auto}
+pre.code .c{color:var(--text-faint)}
+
+/* ===== TOC ===== */
+.toc-header{margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.toc-header .eyebrow{font-family:var(--font-display);letter-spacing:.24em;color:var(--brand)}
+.toc-header h2{font-size:32px}
+.toc-row{display:grid;grid-template-columns:44px 1fr 54px;align-items:baseline;gap:10px;padding:9px 6px;border-bottom:1px dotted #E8E2F0}
+.toc-row:last-child{border-bottom:0}
+.toc-row .ref{font-family:var(--font-mono);font-size:11.5px;color:var(--brand);font-weight:600}
+.toc-row .ttl{font-size:14px;color:var(--ink);font-weight:500}
+.toc-row .pg{font-size:11px;color:var(--text-faint);text-align:right;font-family:var(--font-mono)}
+
+.endmark{width:60px;height:8px;margin:22px auto 0;background:linear-gradient(90deg,#5938A8 0%,#A8307E 50%,#CB2E28 100%);border-radius:4px}
+
+/* ============================================================ PRINT ============================================================ */
+@page{
+  size:8.5in 11in; margin:1in .65in .85in .65in;
+  @top-left{content:"TRANSILIENCE · VENDY · REFERENCE";font-family:system-ui,"Helvetica Neue",Arial,sans-serif;font-size:11px;line-height:1;letter-spacing:.16em;color:#1F1326;font-weight:700;vertical-align:bottom;padding-bottom:2px;border-bottom:1px solid #D9D1E6}
+  @top-right{content:"Reference · v0.2";font-family:system-ui,"Helvetica Neue",Arial,sans-serif;font-size:11px;line-height:1;color:#A8307E;font-weight:600;vertical-align:bottom;padding-bottom:2px;border-bottom:1px solid #D9D1E6}
+  @bottom-left{content:"TRANSILIENCEAI · CONFIDENTIAL · INTERNAL";font-family:system-ui,"Helvetica Neue",Arial,sans-serif;font-size:10px;line-height:1;letter-spacing:.18em;color:#5938A8;font-weight:700;vertical-align:top;padding-top:2px;border-top:1px solid #D9D1E6}
+  @bottom-right{content:"PAGE " counter(page);font-family:system-ui,"Helvetica Neue",Arial,sans-serif;font-size:11px;line-height:1;letter-spacing:.18em;color:#1F1326;font-weight:700;vertical-align:top;padding-top:2px;border-top:1px solid #D9D1E6;white-space:nowrap}
+}
+@page :first{ margin:0; @top-left{content:none} @top-right{content:none} @bottom-left{content:none} @bottom-right{content:none} }
+
+@media print{
+  :root{
+    --font-sans:"Helvetica Neue",Arial,sans-serif;
+    --font-display:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+    --font-script:"Times New Roman",Georgia,serif;
+    --font-mono:"Menlo","SFMono-Regular",ui-monospace,monospace;
+  }
+  html,body{background:#fff}
+  .sheet,.page{width:auto;margin:0;box-shadow:none}
+  .page{padding:2px 0 0}
+  .cover-sheet{padding:0}
+  .cover{height:11in;padding:.8in .85in}
+  .cover-title{font-size:92px}
+  .cover .lede{font-size:20px}
+  body{font-size:11.6px;line-height:1.5}
+  h2{font-size:24px}
+  h3{font-size:15.5px}
+  /* Each numbered section + TOC starts a fresh page; cover stays page 1 */
+  section.page{break-before:page;page-break-before:always}
+  section.cover-sheet{break-before:auto;page-break-before:auto}
+  .feature-card,.callout,.note,.steplist li,.pullquote,.rules li,tr{break-inside:avoid;page-break-inside:avoid}
+  h2,h3,h4,.section-title{break-after:avoid;page-break-after:avoid}
+  table.t{break-inside:auto}
+  p,li{orphans:3;widows:3}
+  pre.code{break-inside:avoid;page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="sheet cover-sheet">
+  <div class="cover">
+    <div class="topbar">
+      <div class="logo"><span class="infinity-mark"></span> Transilience</div>
+      <div class="label">Reference Manual</div>
+    </div>
+    <div class="hero">
+      <div class="cover-eyebrow">Reference · V0.2 · Transilience</div>
+      <h1 class="cover-title">Vendy<span class="dot">.</span></h1>
+      <p class="lede">A digital salesperson with a constitution, a voice palette, and a record of her work.</p>
+      <p class="cover-meta">A reference for what lives where in the project — every directory, every file group, every output. For when you want to know where to look, what each thing contains, and how the whole machine fits together.</p>
+    </div>
+    <div class="footer-row">
+      <dl class="meta">
+        <dt>Runtime</dt><dd>Claude Code</dd>
+        <dt>Memory</dt><dd>Filesystem</dd>
+        <dt>Discipline</dt><dd>Doer–witness separation</dd>
+      </dl>
+      <div>2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTENTS ============ -->
+<section class="page">
+  <div class="toc-header">
+    <div class="eyebrow">Contents</div>
+    <h2>What lives where</h2>
+  </div>
+  <div class="toc-row"><span class="ref">01</span><span class="ttl">What Vendy is</span><span class="pg">03</span></div>
+  <div class="toc-row"><span class="ref">02</span><span class="ttl">Architecture at a glance</span><span class="pg">04</span></div>
+  <div class="toc-row"><span class="ref">03</span><span class="ttl">self/ — the constitution</span><span class="pg">05</span></div>
+  <div class="toc-row"><span class="ref">04</span><span class="ttl">craft/ — the library</span><span class="pg">07</span></div>
+  <div class="toc-row"><span class="ref">05</span><span class="ttl">experience/ — the record</span><span class="pg">12</span></div>
+  <div class="toc-row"><span class="ref">06</span><span class="ttl">.claude/agents/ — sub-agents</span><span class="pg">15</span></div>
+  <div class="toc-row"><span class="ref">07</span><span class="ttl">.claude/skills/ — skills</span><span class="pg">17</span></div>
+  <div class="toc-row"><span class="ref">08</span><span class="ttl">.claude/hooks/ — hooks</span><span class="pg">19</span></div>
+  <div class="toc-row"><span class="ref">09</span><span class="ttl">.claude/commands/ — slash commands</span><span class="pg">20</span></div>
+  <div class="toc-row"><span class="ref">10</span><span class="ttl">Campaign workflow, end to end</span><span class="pg">21</span></div>
+  <div class="toc-row"><span class="ref">11</span><span class="ttl">Outputs — where to look</span><span class="pg">24</span></div>
+  <div class="toc-row"><span class="ref">12</span><span class="ttl">output.json schema</span><span class="pg">26</span></div>
+  <div class="toc-row"><span class="ref">13</span><span class="ttl">Five hard rules</span><span class="pg">27</span></div>
+  <div class="toc-row"><span class="ref">14</span><span class="ttl">Phase roadmap</span><span class="pg">28</span></div>
+  <div class="toc-row"><span class="ref">15</span><span class="ttl">Privacy and data handling</span><span class="pg">29</span></div>
+  <div class="toc-row"><span class="ref">16</span><span class="ttl">Setup and running it</span><span class="pg">30</span></div>
+  <div class="toc-row"><span class="ref">17</span><span class="ttl">Colophon</span><span class="pg">33</span></div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">01</span><h2>What Vendy is</h2></div>
+  <p>Vendy is a Claude Code-based cold-outreach agent. Not a mail-merge tool, not an SDR-as-a-service, not a template engine with personality lipstick. She is a working salesperson built as software — practicing the disciplines a thoughtful human SDR would, scaled across more inboxes than one human could carry.</p>
+  <p>She runs as a project on a developer's machine. The character is one document. The library is files on disk. The record is more files. The doer–witness separation is the load-bearing discipline.</p>
+  <h4 class="blockhead">Who she writes to</h4>
+  <table class="t">
+    <thead><tr><th>Persona</th><th>Who they are</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>CISO</code></td><td>Chief Information Security Officer. Buried in alerts, regulatory pressure, board scrutiny. Wants brevity, signal, no theatre.</td></tr>
+      <tr><td class="k"><code>CTO</code></td><td>Chief Technology Officer. Mode-switches across product, people, infrastructure. Responds to peer-shaped reasoning.</td></tr>
+      <tr><td class="k"><code>VP Engineering</code></td><td>Owns delivery and team health. Reads for time-to-value and migration cost.</td></tr>
+      <tr><td class="k"><code>VP Security</code></td><td>Builds and runs the security org. Pattern-recognition operator; wants the data first.</td></tr>
+      <tr><td class="k"><code>Head of Product Security</code></td><td>Lives between SDLC and security. Responds to specificity about how the tool actually fits into the dev loop.</td></tr>
+    </tbody>
+  </table>
+  <p class="muted" style="font-size:13px">Each persona has its own file at <code>craft/personas/{role}.md</code> with voice-fit, framing tropes, and what to avoid.</p>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">02</span><h2>Architecture at a glance</h2></div>
+  <p class="section-lede">Three memory layers, four sub-agents, six skills, six hooks.</p>
+  <h4 class="blockhead">Three memory layers</h4>
+  <table class="t">
+    <thead><tr><th>Layer</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>self/</code></td><td>Constitution and voice palette. Slow-moving. Read-only to Vendy. Changes only via human-approved diffs.</td></tr>
+      <tr><td class="k"><code>craft/</code></td><td>Accumulating library. Canon, exemplars, anti-canon, personas, psychology, research-methodology, cold-email knowledge, notes, patterns, trends.</td></tr>
+      <tr><td class="k"><code>experience/</code></td><td>Episodic memory. Per-prospect folders, per-campaign records, introspective journal, proposed and applied character diffs.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">Four sub-agents</h4>
+  <table class="t">
+    <thead><tr><th>Agent</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>researcher</code></td><td>Drives Claude in Chrome through LinkedIn + web. Writes research-notes.md.</td></tr>
+      <tr><td class="k"><code>profiler</code></td><td>Reads research-notes; writes psychological-portrait.md. Separate context from the drafter.</td></tr>
+      <tr><td class="k"><code>witness</code></td><td>Reviews each draft from a stranger's perspective. Returns ship | rewrite | flag.</td></tr>
+      <tr><td class="k"><code>introspecter</code></td><td>Periodic check on whether character still matches practice. Proposes diffs that need human approval.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">The flow of learning</h4>
+  <p><code>experience/</code> → <code>craft/</code> happens autonomously, by evidence, via the <code>promote-pattern</code> skill. <code>experience/</code> → <code>self/</code> happens only via human-approved diff. Two paths reflecting the two epistemic statuses.</p>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">03</span><h2>self/</h2></div>
+  <p class="section-lede">The constitution. Slow-moving. Read-only to Vendy. Changes only via the apply-approved-diff skill.</p>
+  <h4 class="blockhead">Top-level files</h4>
+  <table class="t">
+    <thead><tr><th>Path</th><th>What it holds</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>self/README.md</code></td><td>The epistemic contract for this layer. Why it is read-only. The sanctioned change path.</td></tr>
+      <tr><td class="k"><code>self/character.md</code></td><td>Vendy's constitution, in her own voice. ~32 paragraphs. The one document she rereads at the start of every session and when she senses drift. Loaded into context by the SessionStart hook.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">self/voice-palette/</h4>
+  <p class="muted" style="font-size:13px">Four registers Vendy chooses from after reading the prospect's psychological portrait. The palette is a toolkit; the character is the hand using it.</p>
+  <table class="t">
+    <thead><tr><th>Path</th><th>What it holds</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>voice-palette/README.md</code></td><td>How the palette is used. When in doubt, default to the more restrained register.</td></tr>
+      <tr><td class="k"><code>voice-palette/format.md</code></td><td>The schema each register file follows.</td></tr>
+      <tr><td class="k"><code>modes/dry-precise.md</code></td><td>For battle-hardened security veterans with thin LinkedIn footprints. Minimal warmth, maximum signal.</td></tr>
+      <tr><td class="k"><code>modes/warm-observational.md</code></td><td>For builder-thinkers who publish essays. Reads like a careful reader noticing.</td></tr>
+      <tr><td class="k"><code>modes/diagnostic-pattern.md</code></td><td>For pattern-recognition operators who want the data first. Front-loads the observation.</td></tr>
+      <tr><td class="k"><code>modes/peer-enthusiast.md</code></td><td>For founders showing recent product wins. Quietly enthusiastic, never sycophantic.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">03</span><h2>self/character.md, in detail</h2></div>
+  <p class="section-lede">The one document Vendy is forbidden from editing herself.</p>
+  <p>character.md is written in first-person prose, not bullet points. Vendy reads it the way a person rereads their own private notebook — for orientation, not lookup. The document is structured as a sequence of stances, each one paragraph long:</p>
+  <h4 class="blockhead">Themes covered</h4>
+  <div class="callout" data-variant="default">
+    <ul style="margin:0;columns:2;column-gap:28px;font-size:13px">
+      <li>Identity claim: "I am a salesperson"</li>
+      <li>Why most cold email fails</li>
+      <li>Wanting the reply without letting it corrupt the work</li>
+      <li>Curiosity as floor, not achievement</li>
+      <li>The doer–witness separation</li>
+      <li>Research as discrimination, not collection</li>
+      <li>Earning the right to claim</li>
+      <li>Adapting register without losing self</li>
+      <li>Privileging suggestion over statement</li>
+      <li>What restraint actually is</li>
+      <li>Persistence with direction</li>
+      <li>Studying self and studying canon</li>
+      <li>Constitution vs memory: still water vs flow</li>
+      <li>Things she will not write</li>
+      <li>What happens after the email is sent</li>
+    </ul>
+  </div>
+  <h4 class="blockhead">Change path</h4>
+  <p><code>experience/journal/proposed-character-diffs/{date}-{slug}.md</code> → human approval (sets <code>approved_by</code> + <code>approved_at</code> in frontmatter) → <code>/apply-diff</code> → archived to <code>applied-character-diffs/</code>.</p>
+  <h4 class="blockhead">Hook enforcement</h4>
+  <p>Every write to <code>self/</code> from any path other than the apply-diff skill is denied by <code>.claude/hooks/pre-write-self-protect.py</code>. The skill creates a marker file at <code>.claude/.diff-in-progress</code> for the duration of the write; the hook reads the marker to know it is authorized.</p>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">04</span><h2>craft/</h2></div>
+  <p class="section-lede">The accumulating library. Writable by Vendy. Where her learning lives.</p>
+  <h4 class="blockhead">Top-level structure</h4>
+  <table class="t">
+    <thead><tr><th>Path</th><th>What it holds</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>craft/README.md</code></td><td>Epistemic contract for this layer. The promotion criteria for observations becoming patterns.</td></tr>
+      <tr><td class="k"><code>craft/INDEX.md</code></td><td>Auto-rebuilt by reindex-memory. The entry point — Vendy reaches for what fits the task, never loads the whole library.</td></tr>
+      <tr><td class="k"><code>craft/open-questions.md</code></td><td>Hypotheses she is testing. Things she has noticed but not yet promoted to belief.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">craft/canon/</h4>
+  <p class="muted" style="font-size:13px">The lineage. Seeded thinkers Vendy stands on. Mostly read-only.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>canon/becc-holland.md</code></td><td>Personalization-at-scale and direct framing.</td></tr>
+      <tr><td class="k"><code>canon/cialdini.md</code></td><td>The six principles of influence, applied to cold email.</td></tr>
+      <tr><td class="k"><code>canon/josh-braun.md</code></td><td>Permission-asking, status equality, never desperate.</td></tr>
+      <tr><td class="k"><code>canon/ogilvy.md</code></td><td>Direct response. Specific over abstract. Earned attention.</td></tr>
+      <tr><td class="k"><code>canon/prose-craft.md</code></td><td>Strunk, Zinsser, Orwell — the discipline of the cut.</td></tr>
+      <tr><td class="k"><code>canon/sam-nelson.md</code></td><td>Multi-thread sales, named-account discipline.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">craft/personas/</h4>
+  <p class="muted" style="font-size:13px">Buyer archetypes. Each file holds typical pain, voice-fit, framing tropes that work, framings to avoid, what they read in the first sentence.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>personas/ciso.md</code></td><td>Chief Information Security Officer.</td></tr>
+      <tr><td class="k"><code>personas/cto.md</code></td><td>Chief Technology Officer.</td></tr>
+      <tr><td class="k"><code>personas/vp-engineering.md</code></td><td>VP Engineering.</td></tr>
+      <tr><td class="k"><code>personas/vp-security.md</code></td><td>VP Security.</td></tr>
+      <tr><td class="k"><code>personas/head-of-product-security.md</code></td><td>Head of Product Security.</td></tr>
+      <tr><td class="k"><code>personas/format.md</code></td><td>Schema each persona file follows.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">04</span><h2>craft/ — continued</h2></div>
+  <h4 class="blockhead">craft/psychology/</h4>
+  <p class="muted" style="font-size:13px">Persuasion frameworks specialized per persona. How a Cialdini frame lands differently for a CISO than for a CTO.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>psychology/frameworks-overview.md</code></td><td>Map of which framework lands for which persona.</td></tr>
+      <tr><td class="k"><code>psychology/loss-aversion-for-ciso.md</code></td><td>Why loss frames work for security buyers, and when they tip into fear-mongering.</td></tr>
+      <tr><td class="k"><code>psychology/peer-proof-for-cto.md</code></td><td>CTOs read peer-shaped evidence faster than authority-shaped evidence.</td></tr>
+      <tr><td class="k"><code>psychology/time-to-value-for-vp-eng.md</code></td><td>VP Eng is reading for migration cost. Time-to-value framings beat feature framings.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">craft/research-methodology/</h4>
+  <p class="muted" style="font-size:13px">Playbooks loaded by the researcher sub-agent before each run.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>linkedin-deep-read.md</code></td><td>How to actually deep-read a LinkedIn profile. Posts, comments, reaction patterns, the silences.</td></tr>
+      <tr><td class="k"><code>web-discovery.md</code></td><td>Beyond LinkedIn — conference talks, podcast appearances, blog posts, GitHub.</td></tr>
+      <tr><td class="k"><code>github-and-code-mining.md</code></td><td>What commit history and starred repos signal about an engineer leader.</td></tr>
+      <tr><td class="k"><code>podcast-and-talks.md</code></td><td>Hesitation, repetition, what they spend time on — the unscripted tells.</td></tr>
+      <tr><td class="k"><code>company-intelligence.md</code></td><td>The company side. Stage, recent funding, pricing changes, hiring patterns.</td></tr>
+      <tr><td class="k"><code>trigger-event-detection.md</code></td><td>What counts as a real trigger event. What does not.</td></tr>
+      <tr><td class="k"><code>tier-depth-guide.md</code></td><td>How deep to research depending on lead priority (A vs B vs C tier).</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">craft/cold-email/</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>what-makes-an-opener-work.md</code></td><td>The opener as the load-bearing sentence. Earned vs unearned.</td></tr>
+      <tr><td class="k"><code>opening-architectures.md</code></td><td>Catalog of opener structures: observation-first, peer-question, specific-callback, etc.</td></tr>
+      <tr><td class="k"><code>subject-line-patterns.md</code></td><td>Subjects that read like internal Slack, not Substack.</td></tr>
+      <tr><td class="k"><code>cta-patterns.md</code></td><td>CTAs that respect the reader's time and asymmetry of attention.</td></tr>
+      <tr><td class="k"><code>ai-tells-graveyard.md</code></td><td>Phrases the deterministic detector blocks. Hard-blocked because they read as machine-written.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">04</span><h2>craft/ — continued</h2></div>
+  <h4 class="blockhead">craft/exemplars/</h4>
+  <p class="muted" style="font-size:13px">Gold-standard cold emails with dissection. Real examples done well. Optionally seeded with 5–10 of the team's best past emails before the first real campaign.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>exemplars/README.md</code></td><td>How exemplars are dissected and used.</td></tr>
+      <tr><td class="k"><code>exemplars/format.md</code></td><td>Schema for each exemplar file.</td></tr>
+      <tr><td class="k"><code>exemplars/INDEX.md</code></td><td>Auto-rebuilt index of all exemplars.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">craft/anti-canon/</h4>
+  <p class="muted" style="font-size:13px">Bad cold emails with dissection. Made concrete so what to avoid is visible.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>anti-canon/README.md</code></td><td>How anti-canon entries are structured.</td></tr>
+      <tr><td class="k"><code>anti-canon/format.md</code></td><td>Schema for each anti-canon file.</td></tr>
+      <tr><td class="k"><code>anti-canon/INDEX.md</code></td><td>Auto-rebuilt index.</td></tr>
+    </tbody>
+  </table>
+  <div class="grid2">
+    <div class="feature-card">
+      <h4>craft/notes/</h4>
+      <p>Atomic dated observations. One observation per file, written via the <code>take-craft-note</code> skill. The seed for patterns. Filename pattern: <code>{date}-{slug-of-observation}.md</code>.</p>
+    </div>
+    <div class="feature-card">
+      <h4>craft/patterns/</h4>
+      <p>Observations promoted to belief, with explicit evidence pointers back to source notes. Promotion happens through the <code>promote-pattern</code> skill, which scans recent notes for clusters meeting the criteria.</p>
+    </div>
+  </div>
+  <h4 class="blockhead">craft/trends/</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>trends/current.md</code></td><td>Active rolling trends file. Read by drafters at start of run-campaign. Refreshed if older than 14 days.</td></tr>
+      <tr><td class="k"><code>trends/runs/{date}.md</code></td><td>Historical refresh runs, kept for diff and context.</td></tr>
+      <tr><td class="k"><code>trends/archive/</code></td><td>Older trend snapshots no longer current.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">05</span><h2>experience/</h2></div>
+  <p class="section-lede">Vendy's episodic memory. Where the work is recorded.</p>
+  <h4 class="blockhead">experience/journal/</h4>
+  <p class="muted" style="font-size:13px">Her introspective record — the part she keeps as a person, not as a system.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>journal/README.md</code></td><td>Epistemic contract for the journal.</td></tr>
+      <tr><td class="k"><code>journal/monthly/</code></td><td>Periodic introspection entries written by the introspecter sub-agent.</td></tr>
+      <tr><td class="k"><code>journal/adhoc/</code></td><td>Triggered reflections — after a notable session, a pattern recognized, a hard rejection from the witness.</td></tr>
+      <tr><td class="k"><code>journal/proposed-character-diffs/</code></td><td>Pending proposed changes to character.md. Each file has frontmatter tracking <code>approved_by</code> and <code>approved_at</code>.</td></tr>
+      <tr><td class="k"><code>journal/applied-character-diffs/</code></td><td>Archive of approved-and-applied diffs. The audit trail for how the constitution evolved.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">experience/prospects/</h4>
+  <p class="muted" style="font-size:13px">Per-prospect working memory. <strong>Gitignored.</strong> One folder per researched lead.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>prospects/README.md</code></td><td>Folder shape per prospect. The canonical layout.</td></tr>
+      <tr><td class="k"><code>prospects/INDEX.md</code></td><td>Searchable table of all prospects: lead-id, persona, industry, campaign, register used, witness verdict, outcome.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">05</span><h2>Per-prospect folder shape</h2></div>
+  <p class="section-lede"><code>experience/prospects/{lead-id}/</code> — written during the campaign run, kept for the audit trail.</p>
+  <table class="t">
+    <thead><tr><th>File</th><th>What it holds</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>brief.md</code></td><td>Distilled lead context. Name, company, role, campaign assignment, priority tier, pre-attached intel from the input JSON.</td></tr>
+      <tr><td class="k"><code>research-notes.md</code></td><td>Output of the researcher sub-agent. Structured per the schema in <code>craft/research-methodology/linkedin-deep-read.md</code>. LinkedIn deep-read, web discovery, GitHub mining, podcast trail, company intelligence, trigger event.</td></tr>
+      <tr><td class="k"><code>psychological-portrait.md</code></td><td>Output of the profiler sub-agent. 3–5 paragraphs of the prospect's actual operational reality and what they would respond to. The foundation for drafting.</td></tr>
+      <tr><td class="k"><code>drafts/v1.md</code></td><td>First draft. Subject + body, with frontmatter recording the voice register chosen and the rhetorical move.</td></tr>
+      <tr><td class="k"><code>drafts/v2.md</code></td><td>Rewrite if witness rejected v1. Up to v2 in the standard cycle; rare A-tier prospects may have a v1-alternative.md.</td></tr>
+      <tr><td class="k"><code>witness-feedback.md</code></td><td>Witness sub-agent output: verdict (ship | rewrite | flag), what works, what fails, prose explanation.</td></tr>
+      <tr><td class="k"><code>final.md</code></td><td>The final draft after witness approval. This is what gets read for sending.</td></tr>
+      <tr><td class="k"><code>disqualify-check.md</code></td><td>Present <em>only</em> if a disqualify signal was detected (active layoff, breach disclosure, PTO indicator, grief). Documents the signal and why outreach was declined.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">05</span><h2>Per-campaign folder shape</h2></div>
+  <p class="section-lede"><code>experience/campaigns/{campaign-id}/</code> — input and output live together. There is no separate inbox or outbox.</p>
+  <table class="t">
+    <thead><tr><th>File</th><th>What it holds</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>input.json</code></td><td>The original input JSON, copied here at the start of the run. The audit trail starts here.</td></tr>
+      <tr><td class="k"><code>brief.md</code></td><td>Human-readable distillation of the campaign block: sender, service line, value-prop anchors, case studies, goal, CTA, voice constraints, must-references, avoid-topics.</td></tr>
+      <tr><td class="k"><code>output.json</code></td><td>The structured output. Per-lead drafts, witness verdicts, ready-to-send flags, human-review-required flags. Schema in section 12.</td></tr>
+      <tr><td class="k"><code>results-summary.md</code></td><td>Drafted vs skipped vs flagged counts. Brief notes on each skip and flag. The triage view.</td></tr>
+      <tr><td class="k"><code>run-log.md</code></td><td>Timestamped event log of the campaign run. Every sub-agent invocation, every witness verdict, every error, every disqualify detection. Append-only.</td></tr>
+      <tr><td class="k"><code>what-i-learned.md</code></td><td>Vendy's post-campaign reflection. What landed, what didn't, what notes were taken, candidates for pattern promotion.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="nb">Naming</span><code>campaign-id</code> is taken from <code>campaign.id</code> in the input JSON if present, otherwise generated as <code>{date}-{slug-of-name}</code>.</div>
+  <div class="note"><span class="nb">Index</span><code>campaigns/INDEX.md</code> is auto-rebuilt by reindex-memory and lists every campaign with id, date, sender, service line, total leads, drafted, skipped, flagged.</div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">06</span><h2>.claude/agents/</h2></div>
+  <p class="section-lede">Sub-agents Vendy invokes during a campaign. Each has its own context window — a deliberate isolation.</p>
+  <div class="grid2">
+    <div class="feature-card">
+      <h4>researcher</h4><span class="path">.claude/agents/researcher.md</span>
+      <p>Drives Claude in Chrome through the user's logged-in LinkedIn session and the broader web. Loads playbooks from <code>craft/research-methodology/</code> sized to the lead's priority tier.</p>
+      <p class="io">reads: brief.md, craft/research-methodology/*</p>
+      <p class="io">writes: prospects/{lead-id}/research-notes.md</p>
+    </div>
+    <div class="feature-card">
+      <h4>profiler</h4><span class="path">.claude/agents/profiler.md</span>
+      <p>Reads the research notes and writes a psychological portrait. Separate context from the drafter so the synthesis is not coloured by Vendy's voice.</p>
+      <p class="io">reads: research-notes.md, brief.md, craft/personas/{role}.md</p>
+      <p class="io">writes: prospects/{lead-id}/psychological-portrait.md</p>
+    </div>
+    <div class="feature-card">
+      <h4>witness</h4><span class="path">.claude/agents/witness.md</span>
+      <p>Reviews each draft from a stranger's perspective. Returns <strong>ship</strong>, <strong>rewrite</strong>, or <strong>flag</strong>. Critically — the witness does not know it is reviewing Vendy's own writer's work. That isolation is the load-bearing discipline.</p>
+      <p class="io">reads: drafts/v{n}.md</p>
+      <p class="io">writes: witness-feedback.md</p>
+    </div>
+    <div class="feature-card">
+      <h4>introspecter</h4><span class="path">.claude/agents/introspecter.md</span>
+      <p>Periodic check on whether Vendy's stated character still matches her recent practice. Triggered manually via <code>/introspect</code> or auto-triggered when witness rejection rate crosses a threshold. If drift is detected, proposes a diff.</p>
+      <p class="io">reads: self/character.md, recent journal/, recent witness-feedback.md</p>
+      <p class="io">writes: journal/proposed-character-diffs/{date}-{slug}.md</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">06</span><h2>Invocation patterns</h2></div>
+  <p>The main thread invokes sub-agents directly. Hooks do not invoke them; hooks only record events and surface cues. The witness in particular must be invoked explicitly after every draft write — the <code>post-draft-trigger-witness.sh</code> hook logs the event and prompts, but does not call the sub-agent.</p>
+  <h4 class="blockhead">Sub-agent return logging</h4>
+  <p>Every sub-agent return fires the <code>SubagentStop</code> hook (<code>.claude/hooks/subagent-stop-log.sh</code>), which appends a line to the active campaign's run-log.md.</p>
+  <h4 class="blockhead">Why isolated contexts</h4>
+  <p>A drafter who is also the reviewer cannot be a real reviewer. The separation of context windows is the structural answer to the temptation to grade your own work.</p>
+  <blockquote class="pullquote">"The doer can have love for the work; the witness must not."</blockquote>
+  <p class="attrib">— self/character.md</p>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">07</span><h2>.claude/skills/</h2></div>
+  <p class="section-lede">Skills are scripted procedures Vendy invokes via slash commands or by name. Each lives in its own folder with a SKILL.md and optional references/.</p>
+  <div class="feature-card" style="margin-bottom:12px">
+    <h4>run-campaign</h4><span class="path">.claude/skills/run-campaign/</span>
+    <p>The top-level orchestration. Reads campaign input JSON, processes each lead through research → profile → draft → witness, writes output JSON and the campaign folder.</p>
+    <table class="t"><tbody>
+      <tr><td class="k"><code>SKILL.md</code></td><td>Happy path summary.</td></tr>
+      <tr><td class="k"><code>references/input-schema.md</code></td><td>Input JSON contract.</td></tr>
+      <tr><td class="k"><code>references/output-schema.md</code></td><td>Output JSON contract + folder shapes.</td></tr>
+      <tr><td class="k"><code>references/workflow.md</code></td><td>Step-by-step including failure modes.</td></tr>
+    </tbody></table>
+  </div>
+  <div class="grid2">
+    <div class="feature-card">
+      <h4>take-craft-note</h4><span class="path">.claude/skills/take-craft-note/</span>
+      <p>Writes an atomic dated observation to <code>craft/notes/</code>. The seed for promoted patterns. Invoked when Vendy notices something worth recording.</p>
+      <p class="io">SKILL.md — frontmatter schema and naming convention.</p>
+    </div>
+    <div class="feature-card">
+      <h4>promote-pattern</h4><span class="path">.claude/skills/promote-pattern/</span>
+      <p>Scans recent notes for clusters that meet promotion criteria, and promotes them to <code>craft/patterns/</code> with explicit evidence pointers back to source notes.</p>
+      <p class="io">SKILL.md · references/clustering.md · references/pattern-template.md</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">07</span><h2>.claude/skills/ — continued</h2></div>
+  <div class="feature-card" style="margin-bottom:12px">
+    <h4>refresh-trends</h4><span class="path">.claude/skills/refresh-trends/</span>
+    <p>Pulls current security and engineering narratives, filters noise from real trends, writes a fresh <code>craft/trends/current.md</code>.</p>
+    <table class="t"><tbody>
+      <tr><td class="k"><code>SKILL.md</code></td><td>Happy path.</td></tr>
+      <tr><td class="k"><code>sources.yaml</code></td><td>Source list — feeds, blogs, conferences.</td></tr>
+      <tr><td class="k"><code>references/filter-criteria.md</code></td><td>How real trends are distinguished from noise.</td></tr>
+      <tr><td class="k"><code>references/output-format.md</code></td><td>Frontmatter and structure of current.md.</td></tr>
+      <tr><td class="k"><code>references/workflow.md</code></td><td>Step-by-step.</td></tr>
+    </tbody></table>
+  </div>
+  <div class="grid2">
+    <div class="feature-card">
+      <h4>apply-approved-diff</h4><span class="path">.claude/skills/apply-approved-diff/</span>
+      <p>The only sanctioned path for <code>self/</code> to change. Validates approval frontmatter, drops the marker file, writes character.md, removes the marker, archives the diff, logs the change.</p>
+      <p class="io">SKILL.md · references/workflow.md</p>
+    </div>
+    <div class="feature-card">
+      <h4>reindex-memory</h4><span class="path">.claude/skills/reindex-memory/</span>
+      <p>Rebuilds INDEX.md files across <code>craft/</code> and <code>experience/</code>. Run after note-taking, pattern-promotion, character-diff application, or by the session-end hook for safety.</p>
+      <p class="io">SKILL.md — index format and what gets rebuilt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">08</span><h2>.claude/hooks/</h2></div>
+  <p class="section-lede">Wired in .claude/settings.json. Each runs automatically on its trigger event — Vendy never invokes them directly.</p>
+  <table class="t">
+    <thead><tr><th>Trigger · script</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><strong>SessionStart</strong><br><code>session-start-load-self.sh</code></td><td>Welcome banner. Loads character + latest journal + current trends into the session.</td></tr>
+      <tr><td class="k"><strong>PreToolUse</strong> (Write|Edit)<br><code>pre-write-self-protect.py</code></td><td>Blocks any write to <code>self/</code> unless the <code>.claude/.diff-in-progress</code> marker is present (only set by apply-approved-diff).</td></tr>
+      <tr><td class="k"><strong>PreToolUse</strong> (Write|Edit)<br><code>pre-write-tell-detector.py</code></td><td>Scans draft writes for hard-blocked AI tells. Blocks the write on hit. The list is in <code>craft/cold-email/ai-tells-graveyard.md</code>; the matcher is in <code>.claude/lib/ai_tells.py</code>.</td></tr>
+      <tr><td class="k"><strong>PostToolUse</strong> (Write)<br><code>post-draft-trigger-witness.sh</code></td><td>On draft writes, records the event in the campaign run-log and surfaces a cue prompting Vendy to invoke the witness.</td></tr>
+      <tr><td class="k"><strong>SubagentStop</strong><br><code>subagent-stop-log.sh</code></td><td>Logs each sub-agent return to the active campaign's run-log.md.</td></tr>
+      <tr><td class="k"><strong>SessionEnd</strong><br><code>session-end-reflect.sh</code></td><td>Triggers reindex-memory; surfaces pattern-promotion suggestions if enough notes accumulated.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">Shared library</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>.claude/lib/ai_tells.py</code></td><td>Deterministic matcher used by the tell-detector hook. Hard-blocked phrases live here.</td></tr>
+      <tr><td class="k"><code>.claude/lib/markdown_index.py</code></td><td>Helpers for building INDEX.md files in reindex-memory.</td></tr>
+      <tr><td class="k"><code>.claude/lib/README.md</code></td><td>How the lib is wired and what it's for.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 09 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">09</span><h2>.claude/commands/</h2></div>
+  <p class="section-lede">Slash commands the user types. Each is a thin entry point that invokes a skill.</p>
+  <table class="t">
+    <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><code>/run-campaign &lt;path&gt;</code></td><td>Top-level entry. Reads the input JSON at the supplied path; runs the full pipeline; writes the campaign folder.</td></tr>
+      <tr><td class="k"><code>/introspect</code></td><td>Manually triggers the introspecter sub-agent. Compares current character.md to recent practice; proposes a diff if drift detected.</td></tr>
+      <tr><td class="k"><code>/refresh-trends</code></td><td>Forces a refresh of <code>craft/trends/current.md</code>. Otherwise auto-runs at start of run-campaign if older than 14 days.</td></tr>
+      <tr><td class="k"><code>/promote-patterns</code></td><td>Scans recent notes for clusters meeting promotion criteria; promotes to <code>craft/patterns/</code>.</td></tr>
+      <tr><td class="k"><code>/apply-diff &lt;path&gt;</code></td><td>Applies an approved diff to <code>self/character.md</code>. Validates the approval frontmatter; refuses if missing.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="nb">Note</span>The witness has no slash command — it is invoked inline by the main thread after every draft write. The doer–witness separation must not be hidden behind a command the user could forget.</div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">10</span><h2>Campaign workflow, end to end</h2></div>
+  <p class="section-lede">What actually happens between /run-campaign and the moment you read output.json.</p>
+  <ul class="steplist alpha">
+    <li><span class="snum">1</span><span class="lbl">Validate and set up</span>Read input JSON; validate against input-schema.md. If invalid, write error to <code>campaigns/_errors/{ts}.md</code> and stop. Create <code>campaigns/{campaign-id}/</code>; copy input to <code>input.json</code>; write <code>brief.md</code>; init <code>run-log.md</code> and skeleton <code>output.json</code>.</li>
+    <li><span class="snum">2</span><span class="lbl">Trends freshness</span>If <code>craft/trends/current.md</code> is older than 14 days or marked placeholder, invoke <code>refresh-trends</code>. Note in run-log.</li>
+    <li><span class="snum">3a</span><span class="lbl">Per-lead — workspace</span>Create <code>prospects/{lead-id}/</code>; write <code>brief.md</code> from input fields and pre-attached intel.</li>
+    <li><span class="snum">3b</span><span class="lbl">Per-lead — disqualify pre-check</span>Read <code>context.disqualify_signals_check</code> from input. If a signal is set: mark skipped; append to run-log; continue.</li>
+    <li><span class="snum">3c</span><span class="lbl">Per-lead — research</span>Invoke <strong>researcher</strong>. Loads relevant playbooks from <code>craft/research-methodology/</code>. Writes <code>research-notes.md</code>. May emit <code>disqualify-check.md</code> and signal skip.</li>
+    <li><span class="snum">3d</span><span class="lbl">Per-lead — profile</span>Invoke <strong>profiler</strong>. Reads research-notes, brief, and the persona file. Writes <code>psychological-portrait.md</code>.</li>
+    <li><span class="snum">3e</span><span class="lbl">Per-lead — draft</span>Main thread reads portrait + brief + campaign block + active trends + persona. Selects a register from <code>self/voice-palette/modes/</code>. Optionally reads 1–2 exemplars and cold-email architecture cues. Writes <code>drafts/v1.md</code>. The tell-detector hook fires; up to 2 deterministic-block rewrites; if still blocked, flag.</li>
+    <li><span class="snum">3f</span><span class="lbl">Per-lead — witness</span>Post-draft hook records and cues. Main thread invokes <strong>witness</strong>. Witness writes <code>witness-feedback.md</code>. <strong>ship</strong> → copy to <code>final.md</code>. <strong>rewrite</strong> → produce <code>drafts/v2.md</code>; witness re-runs; second rewrite-or-flag → flag. <strong>flag</strong> → flag for human review.</li>
+    <li><span class="snum">3g</span><span class="lbl">Per-lead — note</span>Reflect briefly: did anything change Vendy's understanding? If yes, invoke <strong>take-craft-note</strong>.</li>
+    <li><span class="snum">3h</span><span class="lbl">Per-lead — append</span>Append the lead's result to <code>output.json</code>; append timestamped event to <code>run-log.md</code>.</li>
+    <li><span class="snum">4</span><span class="lbl">Campaign close</span>Finalize <code>output.json</code>; write <code>results-summary.md</code> and <code>what-i-learned.md</code>; invoke <strong>reindex-memory</strong>; if 5+ notes accumulated, surface <code>/promote-patterns</code> suggestion.</li>
+  </ul>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">10</span><h2>Workflow failure modes</h2></div>
+  <p class="section-lede">What happens when something goes wrong. Nothing is silently swallowed.</p>
+  <table class="t">
+    <thead><tr><th>Failure</th><th>Response</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><strong>Input JSON malformed</strong></td><td>Stop with error report at <code>campaigns/_errors/{ts}.md</code>. No leads processed.</td></tr>
+      <tr><td class="k"><strong>Researcher times out</strong></td><td>Mark lead as <strong>flag</strong> with reason "research insufficient". Continue to next lead.</td></tr>
+      <tr><td class="k"><strong>Disqualify during research</strong></td><td>Mark lead as <strong>skipped</strong>; write <code>disqualify-check.md</code>; do not draft.</td></tr>
+      <tr><td class="k"><strong>Tell-detector blocks 2+ times</strong></td><td>Mark as <strong>flag</strong>; do not loop further. Surface for human review.</td></tr>
+      <tr><td class="k"><strong>Witness rejects across cycle</strong></td><td>After the second rewrite-or-flag verdict, mark as <strong>flag</strong>; do not loop further.</td></tr>
+      <tr><td class="k"><strong>Profiler returns thin portrait</strong></td><td>If labelled honestly as thin: proceed to draft, but witness's bar shifts toward extra scrutiny.</td></tr>
+      <tr><td class="k"><strong>Sub-agent crash</strong></td><td>Log to run-log; mark lead as <strong>flag</strong>; continue to next lead. Never abort the whole campaign for one lead.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">11</span><h2>Outputs — where to look</h2></div>
+  <p class="section-lede">Answers to "I want to see X — where is it?"</p>
+  <h4 class="blockhead">Triage signals in output.json</h4>
+  <p><code>ready_to_send: true</code> — witness shipped, no flags, tell-detector did not block. Safe to send after a final human read.<br>
+  <code>human_review_required: true</code> — witness flagged, rewrite cycle exhausted, research insufficient, or soft disqualify signal worth eyes.</p>
+  <table class="t">
+    <thead><tr><th>I want…</th><th>Where it is</th></tr></thead>
+    <tbody>
+      <tr><td>the campaign result</td><td><code>campaigns/{campaign-id}/output.json</code></td></tr>
+      <tr><td>the triage view</td><td><code>campaigns/{campaign-id}/results-summary.md</code> — drafted vs skipped vs flagged</td></tr>
+      <tr><td>the event log</td><td><code>campaigns/{campaign-id}/run-log.md</code> — every invocation, verdict, error, timestamped</td></tr>
+      <tr><td>Vendy's post-mortem</td><td><code>campaigns/{campaign-id}/what-i-learned.md</code></td></tr>
+      <tr><td>the final email</td><td><code>prospects/{lead-id}/final.md</code></td></tr>
+      <tr><td>all the draft revisions</td><td><code>prospects/{lead-id}/drafts/v1.md, v2.md, …</code></td></tr>
+      <tr><td>what Vendy thought of the prospect</td><td><code>prospects/{lead-id}/psychological-portrait.md</code></td></tr>
+      <tr><td>the raw research</td><td><code>prospects/{lead-id}/research-notes.md</code></td></tr>
+      <tr><td>the witness verdict</td><td><code>prospects/{lead-id}/witness-feedback.md</code></td></tr>
+      <tr><td>to know why a lead was skipped</td><td><code>results-summary.md</code> → pre-flagged; <code>prospects/{lead-id}/disqualify-check.md</code> → research-detected</td></tr>
+      <tr><td>to find leads in a persona/sector</td><td><code>prospects/INDEX.md</code> — searchable table</td></tr>
+      <tr><td>a list of all campaigns</td><td><code>campaigns/INDEX.md</code></td></tr>
+      <tr><td>what notes were taken in a run</td><td><code>craft/notes/{date}-*.md</code> — with the run's date</td></tr>
+      <tr><td>what patterns are now beliefs</td><td><code>craft/patterns/</code></td></tr>
+      <tr><td>pending character changes</td><td><code>journal/proposed-character-diffs/</code></td></tr>
+      <tr><td>history of character changes</td><td><code>journal/applied-character-diffs/</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 12 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">12</span><h2>output.json schema</h2></div>
+  <p class="section-lede">The contract between the run and the human reviewer.</p>
+<pre class="code">{
+  "campaign_id":   "string",
+  "generated_at":  "ISO-8601",
+  "agent":         "vendy",
+  "results": [
+    {
+      "lead_id":       "string",
+      "status":        "drafted | skipped | flag",
+      "skip_reason":   "string | null",
+      "research_summary": {
+        "linkedin_signal_strength": "high | med | low | none",
+        "trigger_event":            "string",
+        "fallback_used":            "individual | company | industry | none"
+      },
+      "draft": {
+        "subject_line":         "string",
+        "body":                 "string",
+        "voice_register_used":  "string",
+        "length_sentences":     number
+      },
+      "witness": {
+        "verdict":     "ship | rewrite | flag",
+        "what_works":  "string",
+        "what_fails":  "string"
+      },
+      "ready_to_send":          boolean,
+      "human_review_required":  boolean,
+      "review_flags":           ["string"]
+    }
+  ],
+  "summary": {
+    "total_leads":        number,
+    "drafted":            number,
+    "skipped":            number,
+    "flagged":            number,
+    "notes_added":        number,
+    "patterns_promoted":  number
+  }
+}</pre>
+  <p class="muted" style="font-size:13px">The schema is also documented at <code>.claude/skills/run-campaign/references/output-schema.md</code>. Treat that file as authoritative if this PDF and the file diverge.</p>
+</section>
+
+<!-- ============ 13 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">13</span><h2>Five hard rules</h2></div>
+  <p class="section-lede">Not preferences. The floor.</p>
+  <ol class="rules">
+    <li><span class="r">Do not edit self/.</span><span class="why">Changes to the constitution flow through proposed diffs, human approval, and <code>/apply-diff</code>. There is no other path. Enforced by <code>pre-write-self-protect.py</code>.</span></li>
+    <li><span class="r">Do not skip the witness.</span><span class="why">Every draft is reviewed before it ships. The doer–witness separation is the load-bearing discipline of this architecture.</span></li>
+    <li><span class="r">Do not ship a draft containing hard-blocked AI tells.</span><span class="why">The deterministic detector is the floor; never write to bypass it. The list lives at <code>craft/cold-email/ai-tells-graveyard.md</code>.</span></li>
+    <li><span class="r">Do not draft for a prospect you have not researched.</span><span class="why">The portrait is the foundation; without it you are projecting, not seeing.</span></li>
+    <li><span class="r">Do not chase replies dishonestly.</span><span class="why">The work is the work. Wanting the reply is fine; corrupting the work to get it is not.</span></li>
+  </ol>
+</section>
+
+<!-- ============ 14 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">14</span><h2>Phase roadmap</h2></div>
+  <table class="t">
+    <thead><tr><th>Phase</th><th>When</th><th>What</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><strong>Phase 1</strong></td><td><span style="color:var(--brand-700);font-weight:600">now</span></td><td>Research → portrait → draft → witness review. Output JSON for human review and send. The current state.</td></tr>
+      <tr><td class="k"><strong>Phase 2</strong></td><td><span style="color:var(--brand-700);font-weight:600">next</span></td><td>Memory across campaigns. Promoted patterns inform future drafts. Cross-campaign retrieval. The library starts to compound.</td></tr>
+      <tr><td class="k"><strong>Phase 3</strong></td><td><span style="color:var(--brand-700);font-weight:600">horizon</span></td><td>Full autonomy. ICP definition → candidate sourcing → outreach → reply handling → follow-up cadence with guardrails.</td></tr>
+    </tbody>
+  </table>
+  <blockquote class="pullquote">"The work is the work. The next prospect deserves the same care."</blockquote>
+  <p class="attrib">— self/character.md</p>
+</section>
+
+<!-- ============ 15 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">15</span><h2>Privacy and data handling</h2></div>
+  <h4 class="blockhead">What is gitignored</h4>
+  <p><code>experience/prospects/</code> contains personal data about real people. The folder is gitignored at the project root. Do not commit. Do not back up through standard project channels. If long-term retention is needed, use a separate, access-controlled mechanism with an explicit retention policy.</p>
+  <h4 class="blockhead">What is git-tracked</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>self/</code></td><td>The constitution and voice palette.</td></tr>
+      <tr><td class="k"><code>craft/</code></td><td>The accumulating library — no PII.</td></tr>
+      <tr><td class="k"><code>experience/journal/</code></td><td>Vendy's introspective record — about her, not them.</td></tr>
+      <tr><td class="k"><code>experience/campaigns/</code></td><td>Campaign records minus prospect-identifying inputs. README files in <code>prospects/</code> are tracked; the actual prospect folders are not.</td></tr>
+      <tr><td class="k"><code>.claude/</code></td><td>Agent definitions, skills, hooks, settings, lib.</td></tr>
+      <tr><td class="k"><code>CLAUDE.md, README.md</code></td><td>Project instructions and overview.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">Disqualify signals</h4>
+  <p>Vendy refuses to draft for a prospect in active crisis. The pre-check fires on the input's <code>disqualify_signals_check</code> array; the researcher also detects soft signals during work and writes <code>disqualify-check.md</code>. Categories include recent layoff, active breach disclosure, PTO indicator, public grief.</p>
+</section>
+
+<!-- ============ 16 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">16</span><h2>Setup and running it</h2></div>
+  <p class="section-lede">What another machine needs to run Vendy. What runs without the optional pieces.</p>
+  <h4 class="blockhead">Prerequisites — required</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><strong>Claude Code</strong></td><td>CLI v2.0 or later. Vendy runs as a Claude Code project; this is the runtime.</td></tr>
+      <tr><td class="k"><strong>The Vendy repo</strong></td><td>Cloned to a working directory. <code>git clone</code> then <code>cd</code> into it before launching Claude Code.</td></tr>
+      <tr><td class="k"><strong>Python 3.9+</strong></td><td>The six hooks under <code>.claude/hooks/</code> include Python scripts that run via the OS interpreter.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">Prerequisites — optional</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><strong>Chrome / Arc / Brave</strong></td><td>A modern Chromium-based browser. Needed only if you want authenticated LinkedIn deep-reads.</td></tr>
+      <tr><td class="k"><strong>claude-in-chrome-mcp</strong></td><td>MCP server binary referenced in <code>.mcp.json</code>. When installed on PATH and approved per-user, the researcher drives your logged-in Chrome for LinkedIn, signed-in GitHub, and other authenticated reads.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">Without the optional MCP — fallback mode</h4>
+  <p>Vendy runs end-to-end without <code>claude-in-chrome-mcp</code>. The researcher sub-agent falls back to <code>WebFetch</code> + <code>WebSearch</code> for what is publicly fetchable, plus aggregator sites (ZoomInfo, ContactOut, Wiza) for career-history reconstruction. The depth is lower — no comments, no reactions, no posts beyond what LinkedIn serves logged-out — but the workflow is intact.</p>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">16</span><h2>Setup — running a session</h2></div>
+  <h4 class="blockhead">Approving the MCP server</h4>
+  <p>The repo's <code>.mcp.json</code> declares the server. Each new user must approve it themselves — approval lands in <code>~/.claude/settings.local.json</code>, which is gitignored.</p>
+<pre class="code">$ claude mcp list
+  claude-in-chrome: claude-in-chrome-mcp  ✓ Connected
+
+<span class="c"># If not connected, accept the prompt on first session start, or run:</span>
+$ claude mcp approve claude-in-chrome</pre>
+  <h4 class="blockhead">Starting a session</h4>
+<pre class="code">$ cd path/to/vendy
+$ claude
+
+<span class="c"># The SessionStart hook prints the welcome banner and injects:</span>
+<span class="c">#   - self/character.md</span>
+<span class="c">#   - the latest experience/journal/ entry</span>
+<span class="c">#   - craft/trends/current.md</span></pre>
+  <h4 class="blockhead">Before the first real campaign</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>/refresh-trends</code></td><td>Pulls current security/eng narratives into <code>craft/trends/current.md</code>. Auto-runs at campaign start if older than 14 days; manual run advisable on a fresh checkout.</td></tr>
+      <tr><td class="k"><code>craft/exemplars/</code></td><td>Optionally seed with 5–10 of your team's best past cold emails using the schema in <code>exemplars/format.md</code>. Vendy reads exemplars during drafting.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">Running a campaign</h4>
+<pre class="code"><span class="c"># 1. Write input JSON. Schema:</span>
+<span class="c">#    .claude/skills/run-campaign/references/input-schema.md</span>
+
+<span class="c"># 2. Invoke:  /run-campaign path/to/your-input.json</span>
+
+<span class="c"># 3. Read outputs at:</span>
+<span class="c">#    experience/campaigns/{campaign-id}/output.json</span>
+<span class="c">#    experience/campaigns/{campaign-id}/results-summary.md</span>
+<span class="c">#    experience/prospects/{lead-id}/final.md   (per lead)</span></pre>
+</section>
+
+<section class="page">
+  <div class="section-title"><span class="num">16</span><h2>Setup — verifying and current state</h2></div>
+  <h4 class="blockhead">Quick verification checklist</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k"><code>which claude</code></td><td>Path to the claude binary; version 2.0 or later.</td></tr>
+      <tr><td class="k"><code>python3 --version</code></td><td>3.9 or later.</td></tr>
+      <tr><td class="k"><code>claude mcp list</code></td><td><code>claude-in-chrome ✓ Connected</code> if the optional MCP is installed; otherwise the line is missing or shows an error.</td></tr>
+      <tr><td class="k">Open the project</td><td>Session banner appears; <code>self/character.md</code> visible in context.</td></tr>
+      <tr><td class="k"><code>/refresh-trends</code></td><td>Writes a fresh <code>craft/trends/current.md</code> with today's date in frontmatter.</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">Current state on this machine</h4>
+  <p class="muted" style="font-size:13px">A snapshot taken at the time of generation, for the operator's reference.</p>
+  <table class="t">
+    <tbody>
+      <tr><td class="k">Claude Code</td><td><code>2.1.128</code> at <code>~/.local/bin/claude</code> ✓</td></tr>
+      <tr><td class="k">Python</td><td><code>3.9.6</code> (system) ✓</td></tr>
+      <tr><td class="k">Chrome / Arc</td><td>Both installed in <code>/Applications/</code> ✓</td></tr>
+      <tr><td class="k">claude-in-chrome-mcp</td><td><strong>Not installed</strong>. Researcher operates in fallback mode (WebFetch + WebSearch + aggregators).</td></tr>
+      <tr><td class="k">Real research depth</td><td>See <code>experience/prospects/justin-stanford-coalesce/research-notes.md</code> — career history reconstructed from ZoomInfo, ContactOut, Wiza cross-confirmed.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="nb">Privacy</span><code>experience/prospects/</code> contains personal data and is gitignored. Do not commit it; do not back it up through standard project channels. See section 15.</div>
+</section>
+
+<!-- ============ 17 ============ -->
+<section class="page">
+  <div class="section-title"><span class="num">17</span><h2>Colophon</h2></div>
+  <p>Vendy runs as a Claude Code project on a developer's machine. The character is one document. The library is files on disk. The discipline is the doer–witness separation. The rest is just good writing.</p>
+  <hr>
+  <h4 class="blockhead">Stack</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k">Runtime</td><td>Claude Code · Claude Opus 4.6 / 4.7</td></tr>
+      <tr><td class="k">Browser automation</td><td>Claude in Chrome MCP server</td></tr>
+      <tr><td class="k">Memory</td><td>Filesystem — self/, craft/, experience/</td></tr>
+      <tr><td class="k">Privacy</td><td>experience/prospects/ is gitignored</td></tr>
+      <tr><td class="k">Configuration</td><td>.claude/settings.json</td></tr>
+      <tr><td class="k">Local overrides</td><td>.claude/settings.local.json (gitignored)</td></tr>
+      <tr><td class="k">MCP config</td><td>.mcp.json</td></tr>
+    </tbody>
+  </table>
+  <h4 class="blockhead">How to extend</h4>
+  <table class="t">
+    <tbody>
+      <tr><td class="k">Add a persona</td><td>Write <code>craft/personas/{role}.md</code> in the format from <code>personas/format.md</code>.</td></tr>
+      <tr><td class="k">Add an exemplar</td><td>Drop a dissected past email into <code>craft/exemplars/</code> per the format file.</td></tr>
+      <tr><td class="k">Add a research playbook</td><td>Add a markdown file under <code>craft/research-methodology/</code>; the researcher will load it when relevant.</td></tr>
+      <tr><td class="k">Change Vendy's character</td><td>Write a proposed diff under <code>experience/journal/proposed-character-diffs/</code>; add approval frontmatter; run <code>/apply-diff</code>.</td></tr>
+    </tbody>
+  </table>
+  <div class="endmark"></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "lead_id": "audrey-leong-padlet",
+  "person": {
+    "name": "Audrey Leong",
+    "title": "Operations Lead (Compliance and Support)",
+    "company": "Padlet",
+    "email": "audrey@padlet.com",
+    "linkedin_url": "http://www.linkedin.com/in/audrey-leong-b23a49169"
+  },
+  "company": {
+    "name": "Padlet",
+    "industry": "Education technology / collaboration SaaS",
+    "size": 78,
+    "stage": "Bootstrapped / founder-led",
+    "icp_fit": "A — primary ICP"
+  },
+  "routing_rationale": "Singapore-based operations generalist; accreted compliance scope organically (CPF Board → Payboy → Padlet). Three jobs on one person: compliance + support + operations. The Padlet DPA lists nitesh@privacy@padlet.com as the privacy contact-of-record, but the operational compliance work lands on Audrey. She is the de facto DPO with no DPO title. Confirmed updater of Padlet's GDPR knowledge base (last edited March 2026). Distinct angle: operational compliance laborer / inbound queue (vs Nitesh's architectural choice angle).",
+  "research_summary": {
+    "linkedin_signal_strength": "med (after browser reconnect re-verification)",
+    "linkedin_signal_density_note": "First-pass research had LinkedIn blocked. Re-research with authenticated LinkedIn revealed her actual current headline: 'Support, compliance and privacy specialist, CIPP/E.' She holds the IAPP Certified Information Privacy Professional / Europe credential — a real privacy credential, not an organic-accretion role. Singapore-based, 164 connections (low public footprint). Activity: empty. The 'operations generalist' framing in the original research has been corrected; she is a credentialed privacy specialist serving as the privacy function at Padlet.",
+    "trigger_event": "Same Arcade launch as Nitesh's, but framed at her operational layer: each new product surface generates inbound district legal team questionnaires, and Arcade has no separate DPA documentation. Time-per-inquiry compounds because answers don't yet exist as documentation, so they're answered email-by-email.",
+    "fallback_used": "role-pattern-and-work-product",
+    "key_insight": "Anchored on her own work product (the GDPR KB she updated in March 2026 — public, recent, verifiable) rather than her absent public voice. Did not tell her she has too many jobs (she knows). Did not pitch above her authority — the email's job is to surface a real operational gap she can take to Nitesh, or to start an honest exchange about how the inbound is currently being handled."
+  },
+  "draft": {
+    "subject_line": "When Arcade DPA questions land",
+    "body": "The Padlet GDPR knowledge base updated last in March; the DPA library covers padlet.com cleanly but doesn't have a corresponding entry for Arcade — so when a district legal team asks how Arcade is covered, the answer has to be assembled email-by-email rather than pointed at.\n\nEach new product surface compounds that pattern: documentation lags the launch, questionnaires arrive before the documentation catches up, and the privacy function carries the gap until something is written.\n\nTransilience generates that documentation as continuous output — what each surface does with data, where it goes, what it retains — so the answer to \"is this covered\" exists by the time the question lands.\n\nAre Arcade questions answered case-by-case, or is there a Type 1 update planned?",
+    "voice_register_used": "diagnostic-pattern shading dry-precise",
+    "length_sentences": 4,
+    "architecture": "diagnostic — anchors on her actual work product (GDPR KB updated March 2026) + verifiable structural fact (DPA library), names the operational pattern (documentation lag → questionnaires arrive → ops absorbs gap), product sentence framed in her vocabulary (documentation as continuous output), CTA invites a real operational answer with a binary alternative"
+  },
+  "witness": {
+    "verdict": "ship",
+    "verdict_history": [
+      {"version": "v1", "verdict": "ship", "reason": "Audrey was the cleanest of the four Padlet drafts on first pass. Minor 'Each new product surface' verbatim repeat with Nitesh — fix on Nitesh's side rather than rewrite Audrey."},
+      {"version": "v2", "verdict": "ship", "reason": "Post-browser-reconnect verification surfaced she holds CIPP/E credential. Original 'operations generalist' framing corrected. One-phrase update: 'operations function absorbs the gap' → 'privacy function carries the gap until something is written.' More accurate to her actual specialization, more dignified, no cross-draft echo introduced. Witness: ship."}
+    ],
+    "what_works": "Anchors on her actual work product (GDPR KB she updated). Diagnostic-pattern triangulates three signals into the inbound-compounding pattern she would recognize as her week. Product sentence is concretely operational. CTA acknowledges her professional vocabulary ('Type 1 update') without explaining it.",
+    "what_fails": "The 'Type 1 update' reference is sophisticated compliance vocabulary. If she misroutes the email (e.g., it gets forwarded to a less compliance-fluent reader), the technical specificity could become a friction. Acceptable because the email's primary reader is her, and she would notice if the vocabulary were dumbed down."
+  },
+  "ready_to_send": true,
+  "human_review_required": false,
+  "review_flags": [
+    "coordinate-across-padlet-leads: see Nitesh's flag"
+  ],
+  "artifacts": {
+    "research_notes": "experience/prospects/audrey-leong-padlet/research-notes.md",
+    "psychological_portrait": "experience/prospects/audrey-leong-padlet/psychological-portrait.md",
+    "drafts": ["experience/prospects/audrey-leong-padlet/drafts/v1.md", "experience/prospects/audrey-leong-padlet/drafts/v2.md"],
+    "witness_feedback": "experience/campaigns/2026-04-30-transilience-security-os-saas/companies/padlet/_witness-cross-draft-review.md",
+    "final": "experience/prospects/audrey-leong-padlet/final.md"
+  }
+}
