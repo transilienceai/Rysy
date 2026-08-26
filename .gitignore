@@ -3,14 +3,22 @@
 .claude/.diff-in-progress
 .claude/.last-session-start
 
-# Vendy private memory in the LIVE root instance — contains personal data
-# about prospects. Anchored to the repo root (leading slash) so it does NOT
-# also ignore the curated snapshot under sample_state/, which is intentionally
-# committed (private repo). Keep the README/.gitkeep so the folder shape shows.
+# Prospect data — contains personal information
 /experience/prospects/*
 !/experience/prospects/README.md
 !/experience/prospects/INDEX.md
 !/experience/prospects/.gitkeep
+
+# Sample state — contains real PII from past campaigns
+sample_state/
+
+# Campaign data — may contain PII
+/experience/campaigns/2026-*/
+/experience/campaigns/.env
+
+# Environment files
+.env
+**/.env
 
 # Operating system
 .DS_Store

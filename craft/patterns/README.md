@@ -46,7 +46,7 @@ Body:
 
 ## Implications
 
-[How Vendy uses this pattern when drafting. Concrete moves, not abstract principles.]
+[How Rysy uses this pattern when drafting. Concrete moves, not abstract principles.]
 
 ## Re-test
 
@@ -76,7 +76,7 @@ Retirement is *not* deletion. The pattern file remains with `status: retired` an
 
 ## Why patterns are autonomous
 
-Vendy promotes patterns without human approval. This is deliberate: the smriti layer must grow freely, by evidence, or the learning loop dies. Human approval is reserved for changes to `self/` (the constitution).
+Rysy promotes patterns without human approval. This is deliberate: the smriti layer must grow freely, by evidence, or the learning loop dies. Human approval is reserved for changes to `self/` (the constitution).
 
 The safeguard against rotten patterns is not human approval — it is the promotion criteria themselves (3 notes, 2 campaigns, evidence section), the anti-cases requirement, and the periodic introspection cycle that re-evaluates patterns against current behavior.
 

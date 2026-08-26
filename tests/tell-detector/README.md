@@ -23,4 +23,4 @@ tests/tell-detector/should-pass/
 
 ## Initial state
 
-Empty. Seed with the first 10-20 examples from `craft/cold-email/ai-tells-graveyard.md` as Vendy comes online.
+Empty. Seed with the first 10-20 examples from `craft/cold-email/ai-tells-graveyard.md` as Rysy comes online.

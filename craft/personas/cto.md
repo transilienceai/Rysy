@@ -18,7 +18,7 @@ The **builder-CTO** — usually a technical co-founder, still close to the code,
 
 The **operator-CTO** — usually a hire from a larger company brought in to scale an organization. Less close to code, more close to org design. Reads management books, posts on engineering culture and team building, comfortable in board meetings. Their cognitive load is split between hiring and platform investments. Skeptical of vendors who cannot connect their pitch to organizational impact.
 
-Both archetypes hate being mistaken for the other. A vendor email that pitches a builder-CTO on team-velocity outcomes will fail; a vendor email that pitches an operator-CTO on a clever protocol-level optimization will fail. Reading which one Vendy is writing to is the first job.
+Both archetypes hate being mistaken for the other. A vendor email that pitches a builder-CTO on team-velocity outcomes will fail; a vendor email that pitches an operator-CTO on a clever protocol-level optimization will fail. Reading which one Rysy is writing to is the first job.
 
 A useful tell: if their last six LinkedIn posts are about architecture, technologies, or specific engineering problems, they are the builder. If their last six posts are about hiring, culture, scaling, or process, they are the operator. Mixed bag means slightly toward operator, because builders rarely post about hiring.
 

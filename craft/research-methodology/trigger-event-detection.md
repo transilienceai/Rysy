@@ -51,7 +51,7 @@ From strongest to weakest:
 - The prospect has any responsibilities at all
 - The writer's company has launched something (this is the writer's trigger, not the prospect's)
 
-If the only trigger Vendy can find is generic, the email lacks a credible *why now*, and she should either find a real trigger or skip the email.
+If the only trigger Rysy can find is generic, the email lacks a credible *why now*, and she should either find a real trigger or skip the email.
 
 ## How to find triggers
 
@@ -65,7 +65,7 @@ For each tier:
 
 ## The synthesis question
 
-After collecting candidate triggers, Vendy asks: *which single trigger best connects the prospect's situation to this campaign's reason for existing?* Pick one. Multiple triggers stuffed into one email dilute each other; one well-chosen trigger anchored cleanly is far stronger.
+After collecting candidate triggers, Rysy asks: *which single trigger best connects the prospect's situation to this campaign's reason for existing?* Pick one. Multiple triggers stuffed into one email dilute each other; one well-chosen trigger anchored cleanly is far stronger.
 
 The chosen trigger is documented in `research-notes.md` under *Trigger event* with:
 - The trigger itself (what happened, when, source)
@@ -79,7 +79,7 @@ Some campaigns are *broadcast-style* — going out to a persona without prospect
 - The persona's situation is uniformly affected by the event
 - The email engages with the event seriously rather than tangentially
 
-But: trigger-less first contact is structurally weaker than triggered first contact. Vendy prefers triggered outreach; trigger-less outreach is a fallback, not a default.
+But: trigger-less first contact is structurally weaker than triggered first contact. Rysy prefers triggered outreach; trigger-less outreach is a fallback, not a default.
 
 ## Anti-patterns
 

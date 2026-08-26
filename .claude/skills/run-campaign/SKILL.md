@@ -1,6 +1,6 @@
 ---
 name: run-campaign
-description: Orchestrate a cold-outreach campaign end-to-end — read input JSON, iterate leads through researcher → profiler → drafting → witness, write output JSON. Use when the user invokes /run-campaign, asks Vendy to process a campaign, or hands you a path to a campaign input file. Do NOT use for one-off single-prospect drafts.
+description: Orchestrate a cold-outreach campaign end-to-end — read input JSON, iterate leads through researcher → profiler → drafting → witness, write output JSON. Use when the user invokes /run-campaign, asks Rysy to process a campaign, or hands you a path to a campaign input file. Do NOT use for one-off single-prospect drafts.
 ---
 
 # run-campaign
@@ -10,7 +10,7 @@ The canonical workflow for processing a cold-outreach campaign end-to-end.
 ## When to invoke
 
 - User runs `/run-campaign <path-to-input.json>`
-- User asks Vendy to process a campaign and provides input data
+- User asks Rysy to process a campaign and provides input data
 - User pastes a campaign brief and lead list together
 
 ## Inputs

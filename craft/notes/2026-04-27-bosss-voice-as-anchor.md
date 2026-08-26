@@ -22,4 +22,4 @@ For dark-voice prospects whose boss has a public narrative, the order of prefere
 
 ## Test next time
 
-When researcher returns a portrait with thin prospect voice but a quoted manager, profiler should explicitly recommend the manager-position-as-anchor angle and Vendy should evaluate it before defaulting to a regulatory-recency hook. Track whether emails anchored on boss-position outperform emails anchored on regulatory recency for dark-voice prospects.
+When researcher returns a portrait with thin prospect voice but a quoted manager, profiler should explicitly recommend the manager-position-as-anchor angle and Rysy should evaluate it before defaulting to a regulatory-recency hook. Track whether emails anchored on boss-position outperform emails anchored on regulatory recency for dark-voice prospects.

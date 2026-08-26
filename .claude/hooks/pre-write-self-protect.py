@@ -62,7 +62,7 @@ def main():
             "hookEventName": "PreToolUse",
             "permissionDecision": "deny",
             "permissionDecisionReason": (
-                "self/ is read-only to Vendy. The only sanctioned path for "
+                "self/ is read-only to Rysy. The only sanctioned path for "
                 "self/character.md to change is via the apply-approved-diff "
                 "skill (invoked through /apply-diff) with a human-approved "
                 "proposed diff in experience/journal/proposed-character-diffs/. "

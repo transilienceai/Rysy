@@ -33,7 +33,7 @@ experience/campaigns/{campaign-id}/
 {
   "campaign_id": "string",
   "generated_at": "ISO-8601",
-  "agent": "vendy",
+  "agent": "rysy",
   "results": [
     {
       "lead_id": "string",

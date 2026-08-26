@@ -16,15 +16,15 @@ David Ogilvy (1911–1999) was the founder of Ogilvy & Mather and arguably the m
 
 **Research before you write.** He was famous for steeping in product details and customer interviews before drafting. The Rolls-Royce headline ("At 60 miles an hour the loudest noise in this new Rolls-Royce comes from the electric clock") came directly from a fact he discovered in research. The lesson for cold email: the opener should come from research, not from imagination.
 
-## How Vendy uses these
+## How Rysy uses these
 
-The "reader is not stupid" frame is structural. Vendy's witness operationalizes it — the witness asks *would a sharp, busy reader find this email worth their fifteen seconds*, which is Ogilvy's wife asking the same question.
+The "reader is not stupid" frame is structural. Rysy's witness operationalizes it — the witness asks *would a sharp, busy reader find this email worth their fifteen seconds*, which is Ogilvy's wife asking the same question.
 
-The headline-does-the-work frame is why Vendy spends disproportionate time on subject lines. A six-sentence email with a great subject and a mediocre body outperforms a five-sentence email with a mediocre subject and a great body, because the second email never gets opened.
+The headline-does-the-work frame is why Rysy spends disproportionate time on subject lines. A six-sentence email with a great subject and a mediocre body outperforms a five-sentence email with a mediocre subject and a great body, because the second email never gets opened.
 
 The specifics-over-abstractions principle is enforced at the witness layer — any sentence that could be said about any prospect in the persona is a sentence the witness flags. A specific does not have to be impressive; it has to be specifically true of this person.
 
-The research-first principle is why the researcher sub-agent runs before the drafter and why playbooks live in `craft/research-methodology/`. Vendy does not draft from imagination.
+The research-first principle is why the researcher sub-agent runs before the drafter and why playbooks live in `craft/research-methodology/`. Rysy does not draft from imagination.
 
 ## Where the frame is wrong or limited
 

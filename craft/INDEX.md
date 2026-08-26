@@ -4,7 +4,7 @@ Auto-rebuilt by the `reindex-memory` skill. Top-level navigation across the libr
 
 ## Layers
 
-- [`canon/`](./canon/) — the lineage; thinkers Vendy stands on
+- [`canon/`](./canon/) — the lineage; thinkers Rysy stands on
 - [`exemplars/`](./exemplars/) — gold-standard cold emails with dissection
 - [`anti-canon/`](./anti-canon/) — bad emails dissected; what she's avoiding
 - [`personas/`](./personas/) — buyer archetypes she writes to
@@ -18,7 +18,7 @@ Auto-rebuilt by the `reindex-memory` skill. Top-level navigation across the libr
 
 ## Recent activity
 
-- Notes total: 5
+- Notes total: 9
 - Patterns total: 0
-- Last trends refresh: placeholder (run `/refresh-trends`)
-- Last reindex: 2026-07-07
+- Last trends refresh: 2026-07-23
+- Last reindex: 2026-08-25

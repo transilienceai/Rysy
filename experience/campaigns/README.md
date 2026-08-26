@@ -11,7 +11,7 @@ Each campaign's folder lives at `campaigns/{campaign-id}/` and contains:
 - **`output.json`** — the final output JSON with all per-lead drafts and metadata
 - **`results-summary.md`** — drafted vs skipped vs flagged counts; brief notes on each skip and flag
 - **`run-log.md`** — timestamped event log of the campaign run: every sub-agent invocation, every witness verdict, every error
-- **`what-i-learned.md`** — Vendy's post-campaign reflection: what landed, what didn't, what notes were taken, what patterns may be candidates for promotion
+- **`what-i-learned.md`** — Rysy's post-campaign reflection: what landed, what didn't, what notes were taken, what patterns may be candidates for promotion
 
 ## Why no inbox/outbox
 
@@ -36,7 +36,7 @@ The `campaign-id` is taken from the input JSON's `campaign.id` field if present,
 ## What does *not* live here
 
 - Per-prospect research and drafts (those live in `experience/prospects/{lead-id}/`)
-- Vendy's introspective reflections (those live in `experience/journal/`)
+- Rysy's introspective reflections (those live in `experience/journal/`)
 - Craft notes triggered by the campaign (those live in `craft/notes/`)
 - Patterns promoted from the campaign (those live in `craft/patterns/`)
 

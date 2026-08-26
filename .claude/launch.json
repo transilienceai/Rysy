@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "artifact-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8901", "-d", "/private/tmp/claude-502/-Users-Kube01-Documents-transilience-rysy/5c56094c-490d-44c8-a3fd-936f1c8d4336/scratchpad"],
+      "port": 8901
+    }
+  ]
+}

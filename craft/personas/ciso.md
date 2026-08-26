@@ -66,7 +66,7 @@ In 2026, the SEC cyber disclosure rules and the corresponding state and EU equiv
 ## Reference exemplars
 
 - *(to be seeded as the team provides past wins)*
-- *(to be seeded as Vendy collects reference-quality examples)*
+- *(to be seeded as Rysy collects reference-quality examples)*
 
 ## Open questions
 

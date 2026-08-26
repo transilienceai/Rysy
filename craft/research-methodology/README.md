@@ -1,6 +1,6 @@
 # craft/research-methodology/
 
-The playbooks the researcher sub-agent loads before each research run. These files are the operational doctrine for *how* Vendy researches. Without them, the researcher would improvise differently every time and the quality of research would drift.
+The playbooks the researcher sub-agent loads before each research run. These files are the operational doctrine for *how* Rysy researches. Without them, the researcher would improvise differently every time and the quality of research would drift.
 
 ## How playbooks are used
 
@@ -18,7 +18,7 @@ When the researcher sub-agent is invoked by the `run-campaign` skill, its system
 
 ## How playbooks evolve
 
-Each playbook's frontmatter declares the tier scopes it applies to and the version. As Vendy works, she takes craft notes about research moves that landed (or failed). When evidence accumulates that a playbook should change — a new search pattern that catches what others miss, a stage of LinkedIn research that has become unproductive — the playbook can be revised through the standard pattern-promotion path.
+Each playbook's frontmatter declares the tier scopes it applies to and the version. As Rysy works, she takes craft notes about research moves that landed (or failed). When evidence accumulates that a playbook should change — a new search pattern that catches what others miss, a stage of LinkedIn research that has become unproductive — the playbook can be revised through the standard pattern-promotion path.
 
 The research methodology is *not* part of the constitution; it is craft. It evolves as the platforms, personas, and prospect behaviors evolve. LinkedIn's UI changes, search engines change, what senior buyers post changes, and the playbooks should change with them.
 

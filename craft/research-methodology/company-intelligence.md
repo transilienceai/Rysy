@@ -94,7 +94,7 @@ A great cold email is partly about the prospect, partly about the moment they ar
 
 - Reciting the company's mission statement back to them
 - Praising the company's recent funding round
-- Listing logos of their customers (this is for the writer's company, not Vendy's)
+- Listing logos of their customers (this is for the writer's company, not Rysy's)
 - Quoting their CEO's recent statement to them (they have read it; you have not added value)
 - Confusing what they say they care about (marketing) with what they actually invest in (hiring, headcount, talks)
 

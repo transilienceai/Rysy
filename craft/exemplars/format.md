@@ -57,6 +57,6 @@ Specific prospect-shapes or campaign contexts where this exemplar is calibrating
 
 ## Why each section exists
 
-The dissection is the lesson. The frontmatter is what makes the exemplar findable. The "when to reach for this" section is what calibrates Vendy's selection during drafting.
+The dissection is the lesson. The frontmatter is what makes the exemplar findable. The "when to reach for this" section is what calibrates Rysy's selection during drafting.
 
 A file with the email but no dissection is just an email. A file with all four parts is an exemplar.

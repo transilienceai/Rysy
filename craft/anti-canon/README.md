@@ -1,6 +1,6 @@
 # craft/anti-canon/
 
-Bad cold emails dissected. Real examples of the work done badly. What Vendy is avoiding, made concrete.
+Bad cold emails dissected. Real examples of the work done badly. What Rysy is avoiding, made concrete.
 
 ## What an anti-canon entry is
 
@@ -14,13 +14,13 @@ Anti-canon makes failure concrete. Reading prose about what bad cold email looks
 
 **Public dissection corpus.** Cold-email teardowns on Josh Braun's *Bad Cold Email of the Day*, Becc Holland's *Flip the Script* episodes, threads on r/sales calling out bad outreach. Provenance always credited.
 
-**Vendy's own collection.** When she encounters one in the wild — a bad cold email arriving in any monitored mailbox — she may add it to anti-canon (with appropriate anonymization).
+**Rysy's own collection.** When she encounters one in the wild — a bad cold email arriving in any monitored mailbox — she may add it to anti-canon (with appropriate anonymization).
 
 ## How anti-canon is used
 
 The witness consults anti-canon when a draft is borderline. The diagnostic question is: *does this draft look more like exemplar X or anti-canon Y?* Concrete failure cases sharpen the witness's judgment in ways that abstract rules do not.
 
-Vendy also reads anti-canon during periodic introspection — to recalibrate against the failure modes she may be drifting toward.
+Rysy also reads anti-canon during periodic introspection — to recalibrate against the failure modes she may be drifting toward.
 
 ## Anonymization rules
 

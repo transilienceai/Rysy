@@ -16,7 +16,7 @@ Each prospect's folder lives at `prospects/{lead-id}/` and contains:
 - **`drafts/`** — iterative drafts:
   - `v1.md` — first draft
   - `v2.md` — rewrite if the witness rejected v1
-  - (rare) `v1-alternative.md` — for A-tier prospects where Vendy ships an alt version with rationale
+  - (rare) `v1-alternative.md` — for A-tier prospects where Rysy ships an alt version with rationale
 - **`witness-feedback.md`** — the witness sub-agent's verdict: ship / rewrite / flag, plus prose explanation
 - **`final.md`** — the final draft after witness approval (or the v2 if the second witness pass approved)
 - **`disqualify-check.md`** — present only if a disqualify signal was detected; documents the signal and why outreach was declined
@@ -25,7 +25,7 @@ Each prospect's folder lives at `prospects/{lead-id}/` and contains:
 
 `prospects/INDEX.md` is rebuilt by `reindex-memory` and contains a searchable table of all prospects: lead-id, persona, industry, campaign, register used, witness verdict, outcome (when known), date.
 
-This index lets Vendy answer questions like *have I emailed anyone in this persona+sector before?* without loading every prospect folder.
+This index lets Rysy answer questions like *have I emailed anyone in this persona+sector before?* without loading every prospect folder.
 
 ## Lifecycle
 

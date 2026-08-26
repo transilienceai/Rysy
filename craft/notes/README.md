@@ -1,6 +1,6 @@
 # craft/notes/
 
-Vendy's atomic, dated observations. Her zettelkasten. One observation per file.
+Rysy's atomic, dated observations. Her zettelkasten. One observation per file.
 
 ## Format
 
@@ -54,7 +54,7 @@ A note typically carries 2-5 tags. The `promote-pattern` skill clusters by tag o
 
 ## When to take a note
 
-After any prospect-engagement work, Vendy asks: *did anything in this run change my understanding?* If yes, she takes a note. Specifically:
+After any prospect-engagement work, Rysy asks: *did anything in this run change my understanding?* If yes, she takes a note. Specifically:
 
 - Something the witness flagged that she now thinks is a pattern, not a one-off
 - A move that worked unusually well or unusually badly
@@ -67,7 +67,7 @@ If nothing changed her understanding, no note. Note-taking for its own sake prod
 
 ## INDEX.md
 
-`craft/notes/INDEX.md` is rebuilt by the `reindex-memory` skill. It maintains a flat list of all notes with date, slug, tags, and status. Vendy reads the index when she needs to find prior thinking on a topic.
+`craft/notes/INDEX.md` is rebuilt by the `reindex-memory` skill. It maintains a flat list of all notes with date, slug, tags, and status. Rysy reads the index when she needs to find prior thinking on a topic.
 
 ## Promotion
 

@@ -1,184 +1,184 @@
-# Vendy
+# Rysy
 
-A Claude Code-based cold-outreach agent for senior technical buyers — CISOs, CTOs, VPs of Engineering, VPs of Security, Heads of Product Security.
+A Claude Code agent that does the homework before you reach out to anyone.
 
-Vendy is built as a digital salesperson with a constitution, a voice palette, an accumulating library of craft, and a record of her own work. She uses Claude in Chrome to research prospects through their actual logged-in LinkedIn session and the broader web, the way a thoughtful human SDR would — but faster.
+Rysy researches people using browser automation (LinkedIn, the web), builds psychological portraits from public signals, and helps you craft an approach calibrated to the person and your intent — whether you're pitching an investor, applying to a job, preparing for a podcast interview, or writing a cold email.
 
-This is **Phase 1**: she takes campaign input as JSON, processes leads end-to-end (research → profile → draft → witness review), and produces output JSON of drafts for human review and send. Phase 2 will add memory across campaigns; Phase 3 will move toward fuller autonomy.
+The core pipeline: **research** → **profile** → **strategize** → **witness review**.
 
-## How to run
+Same engine, different outputs — the intent is the variable.
 
-Open this folder in Claude Code. The session-start hook will print Vendy's welcome banner and inject her character, latest journal entry, and current trends into context.
+## Who it's for
 
-To run a campaign:
+| Persona | Scenario | What Rysy produces | Why it beats doing it manually |
+|---|---|---|---|
+| **Founder raising a round** | Researching investors before cold outreach | Investor profile (thesis, recent bets, stated vs. revealed preferences), tailored angle, warm-intro path analysis, draft cold note | Reads the investor's actual activity — reposts, comments, arguments — and finds the gap between their marketed thesis and their revealed one |
+| **Job seeker** | Understanding a hiring manager before applying or interviewing | Hiring manager portrait, team context (recent hires, departures, open problems), interview angle, cover letter draft | Turns "why I'm a fit" into "here's the problem you're solving and why my background maps to it" |
+| **Sales or BD rep** | Customer outreach to senior buyers | Prospect portrait, objection map, approach strategy (angle, tone, timing, CTA), draft outreach with witness review | The original Rysy use case — deep research → personalized outreach instead of templating at volume |
+| **Journalist or podcaster** | Prepping for a guest interview | Guest dossier (career arc, positions, intellectual evolution), prior interview digest, question bank ranked by novelty | Surfaces the thread nobody has asked them to pull on yet — the question that makes them lean forward |
+| **VC or angel investor** | Evaluating a founder before or after a pitch | Founder profile (builder evidence, leadership signals), narrative consistency check, reference-call prep questions | Catches what a LinkedIn skim misses — commit history vs. "technical founder" claims, team churn the deck omits |
+| **Conference attendee** | Prepping for an event with a speaker or attendee list | Priority-ranked briefs, conversation hooks per person, connection graph, personalized follow-up templates | Fifteen people researched overnight instead of five minutes of panic-Googling between sessions |
+| **Recruiter** | Sourcing and reaching out to senior candidates | Candidate portrait (trajectory, motivational signals, move-readiness), role-fit mapping, outreach draft | Produces outreach that reads like someone who actually looked — because the agent actually did |
+
+## How it works
+
+You give Rysy a list of people (with LinkedIn URLs) and an intent. Rysy runs four sub-agents:
+
+1. **Researcher** — drives Claude in Chrome through your logged-in LinkedIn session and the broader web. Loads playbooks from `craft/research-methodology/`. Writes structured research notes.
+2. **Profiler** — reads the research notes in a separate context (so the synthesis isn't colored by the main agent's voice) and writes a psychological portrait.
+3. **Rysy (you)** — reads the portrait and crafts an approach strategy + draft output calibrated to the person and your stated intent.
+4. **Witness** — reviews each draft from a stranger's perspective. Returns `ship | rewrite | flag` with prose. The witness does not know it is reviewing your work — that isolation is the point.
+
+## Quick start
+
+1. Install [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
+2. Clone this repo and open it in Claude Code
+3. Install [Claude in Chrome](https://chromewebstore.google.com/detail/claude-in-chrome/) for browser-driven research (falls back to WebFetch/WebSearch without it)
+4. Run `/refresh-trends` to populate market context
+5. Run your first campaign:
 
 ```
-/run-campaign path/to/your-campaign-input.json
+/run-campaign path/to/your-campaign.json
 ```
 
-To trigger introspection:
+> **First time setting up?** See [`LOCAL_SETUP.md`](LOCAL_SETUP.md) for the full walkthrough — installing Claude Code, trusting the hooks, granting permissions, and connecting Claude in Chrome.
 
-```
-/introspect
-```
+## Input
 
-To refresh the trends file:
-
-```
-/refresh-trends
-```
-
-To promote pattern candidates from accumulated notes:
-
-```
-/promote-patterns
-```
-
-To apply a human-approved character diff:
-
-```
-/apply-diff experience/journal/proposed-character-diffs/2026-04-27-some-diff.md
-```
-
-## Input JSON shape
-
-A campaign input has three blocks: `campaign`, `sender`, `leads[]`.
+A campaign input has three blocks: `campaign` (your intent and constraints), `sender` (who you are), and `leads[]` (the people to research).
 
 ```json
 {
   "campaign": {
-    "id": "q2-2026-fintech-ciso",
-    "name": "Q2 fintech CISO campaign",
-    "service_line": "detection-as-code observability for SOC tier-1",
-    "value_prop_anchors": [
-      "cuts alert triage time on lateral movement detections",
-      "integrates as a SIEM-side reader, no replace"
-    ],
-    "case_studies": [
-      {"company": "Acme Bank", "sector": "fintech", "outcome": "MTTD on lateral-movement signal cut from 22m to 6m"}
-    ],
-    "campaign_goal": "book-call",
-    "desired_cta": "fifteen minutes next week to compare notes on detection-debt economics",
-    "avoid_topics": ["AI buzzwords without specifics"],
-    "must_reference": [],
-    "tone_shift": "default",
-    "max_email_length_sentences": 6
+    "id": "2026-08-series-a-investors",
+    "name": "Series A investor outreach",
+    "intent": "investor-outreach",
+    "context": "We're raising a Series A for our developer tools platform. $2M ARR, 40% MoM growth.",
+    "desired_outcome": "Get a first meeting to walk through our metrics and product roadmap",
+    "output_format": "cold-note",
+    "constraints": {
+      "tone": "founder-to-investor, direct, no pitch-deck language",
+      "max_length_sentences": 5,
+      "avoid": ["buzzwords", "flattery", "asking for money in the first email"]
+    }
   },
   "sender": {
     "name": "Your Name",
-    "title": "Founder",
+    "title": "Co-founder & CEO",
     "company": "Your Company",
-    "company_one_liner": "we run a detection-engineering platform that sits alongside your SIEM",
-    "email_signature": "Best,\nYour Name\nFounder, Your Company",
-    "voice_notes": "I write short, hate exclamation marks, sign with first name only",
-    "credible_claims": ["ex-detection-engineer at Stripe", "based in NYC next week"]
+    "company_one_liner": "developer tools platform that cuts CI/CD pipeline time by 60%",
+    "credible_claims": ["ex-infra at Stripe", "YC W24", "open-source project with 2k GitHub stars"]
   },
   "leads": [
     {
-      "id": "jane-doe-acme-fintech",
-      "priority": "A",
+      "id": "sarah-chen-first-round",
       "person": {
-        "name": "Jane Doe",
-        "linkedin_url": "https://linkedin.com/in/jane-doe-ciso",
-        "email": null,
-        "title": "CISO",
-        "location": null
+        "name": "Sarah Chen",
+        "linkedin_url": "https://linkedin.com/in/sarah-chen-vc",
+        "title": "Partner",
+        "location": "San Francisco"
       },
       "company": {
-        "name": "Acme Bank",
-        "domain": "acmebank.com",
-        "linkedin_url": "https://linkedin.com/company/acme-bank",
-        "industry": "fintech",
-        "stage": "post-IPO",
-        "size_range": "5000-10000"
+        "name": "First Round Capital",
+        "domain": "firstround.com",
+        "industry": "venture capital",
+        "stage": "established"
       },
       "context": {
-        "prior_touches": [],
-        "mutual_connections": [],
-        "pre_attached_intel": "",
-        "trigger_event": null,
-        "disqualify_signals_check": ["recent layoff", "active breach disclosure", "PTO indicator"]
+        "pre_attached_intel": "Led the Series A for DevToolsCo last year. Writes about developer experience on her blog.",
+        "disqualify_signals_check": ["fund currently closed", "competitive portfolio conflict"]
       }
     }
   ]
 }
 ```
 
+The `intent` field shapes the entire pipeline — what the researcher prioritizes, what the profiler emphasizes, and what the output looks like. Supported intents:
+
+- `investor-outreach` — research their thesis, portfolio, recent bets
+- `job-application` — research the hiring manager, team, and company trajectory
+- `customer-outreach` — research pain points, decision-making style, competitive landscape
+- `interview-prep` — research prior appearances, intellectual positions, unexplored topics
+- `founder-diligence` — research builder credibility, team signals, narrative consistency
+- `event-networking` — batch-research attendees, find connection paths
+- `candidate-outreach` — research career trajectory, motivational signals, move readiness
+- `custom` — define your own research priorities and output format
+
 ## Output
 
 After running, you'll find:
 
-- `experience/campaigns/{campaign-id}/output.json` — the structured output with drafts, witness verdicts, ready-to-send flags, and human-review flags
-- `experience/campaigns/{campaign-id}/results-summary.md` — drafted vs skipped vs flagged counts
+- `experience/campaigns/{campaign-id}/output.json` — structured output with drafts, witness verdicts, and review flags
+- `experience/campaigns/{campaign-id}/results-summary.md` — drafted vs. skipped vs. flagged counts
 - `experience/campaigns/{campaign-id}/run-log.md` — timestamped event log
-- `experience/campaigns/{campaign-id}/what-i-learned.md` — Vendy's post-campaign reflection
-- `experience/prospects/{lead-id}/` — full per-prospect working folder for each lead processed
+- `experience/campaigns/{campaign-id}/what-i-learned.md` — Rysy's post-campaign reflection
+- `experience/prospects/{lead-id}/` — full per-prospect working folder (research notes, portrait, drafts)
 
-Drafts marked `ready_to_send: true` passed both the deterministic AI-tell detector and the witness sub-agent's probabilistic review. Drafts marked `human_review_required: true` need your eyes — the witness flagged them or they failed the rewrite cycle.
+Drafts marked `ready_to_send: true` passed both the deterministic quality detector and the witness review. Drafts marked `human_review_required: true` need your eyes.
 
 ## Architecture
 
 Three memory layers:
 
-- **`self/`** — Vendy's constitution and voice palette. Slow-moving. Human-approved changes only.
-- **`craft/`** — accumulating library: canon, exemplars, anti-canon, personas, psychology, research-methodology, cold-email knowledge, notes, patterns, trends, open questions.
-- **`experience/`** — episodic memory: journal, prospects, campaigns.
+- **`self/`** — Rysy's constitution and voice palette. Slow-moving. Human-approved changes only via `/apply-diff`.
+- **`craft/`** — accumulating library: canon (the lineage), exemplars, anti-canon, personas, psychology, research-methodology playbooks, notes (atomic observations), patterns (promoted from notes with evidence), trends (rolling market context), open questions.
+- **`experience/`** — episodic memory: journal (introspective), prospects (per-lead working memory), campaigns (per-campaign records).
 
 Four sub-agents:
 
 - **`researcher`** — drives Claude in Chrome through LinkedIn + web
 - **`profiler`** — synthesizes research into a psychological portrait
-- **`witness`** — reviews drafts from a stranger's perspective; returns ship/rewrite/flag
+- **`witness`** — reviews output from a stranger's perspective; returns ship/rewrite/flag
 - **`introspecter`** — periodic check on whether character still matches practice
 
 Six skills:
 
-- `run-campaign`, `take-craft-note`, `promote-pattern`, `refresh-trends`, `apply-approved-diff`, `reindex-memory`
+- `run-campaign` — top-level orchestration
+- `take-craft-note` — atomic dated observation
+- `promote-pattern` — promote note clusters to patterns with evidence
+- `refresh-trends` — pull and filter current market narratives
+- `apply-approved-diff` — the only path to change `self/character.md`
+- `reindex-memory` — rebuild INDEX files across the library
 
-Six hooks:
+Six hooks enforce guardrails automatically — self-protection, quality detection, witness triggers, and session lifecycle management.
 
-- `session-start-load-self.sh` (welcome banner + context injection)
-- `pre-write-self-protect.py` (blocks unauthorized writes to `self/`)
-- `pre-write-tell-detector.py` (blocks drafts containing hard-blocked AI tells)
-- `post-draft-trigger-witness.sh` (cues the witness on draft writes)
-- `subagent-stop-log.sh` (logs sub-agent returns to campaign run-log)
-- `session-end-reflect.sh` (triggers reindex; suggests pattern promotion)
+## Customization
 
-Plus five slash commands and a Python lib for shared utilities.
+Rysy is designed to be adapted to your domain. Key extension points:
 
-## Repo layout: clean root + sample_state
+- **`self/character.md`** — rewrite the constitution to match your values and voice. This is who the agent *is*, not what it does.
+- **`self/voice-palette/`** — define register modes (dry-precise, warm-observational, diagnostic, etc.) for different prospect types.
+- **`craft/personas/`** — add persona templates for the types of people you interact with (investors, hiring managers, enterprise buyers, etc.).
+- **`craft/research-methodology/`** — customize research playbooks for your domain (what to look for, where to look, how to weigh signals).
+- **`craft/exemplars/`** — seed with 5-10 examples of great output for your use case.
+- **`craft/canon/`** — the intellectual lineage your agent draws from. Add books, thinkers, and frameworks relevant to your domain.
 
-- The **repo root** is a clean, ready-to-use Vendy — full framework and craft library, with the `experience/` output directories reset to empty scaffolding. This is what you open in Claude Code and run.
-- **`sample_state/`** is a frozen snapshot of a real, evolving instance after it has processed campaigns — kept as a reference for what a populated Vendy looks like. See [`sample_state/README.md`](sample_state/README.md).
+## Repo layout
+
+- The **repo root** is a clean, ready-to-use Rysy — full framework and craft library, with `experience/` reset to empty scaffolding.
+- **`sample_state/`** is a frozen snapshot of a real instance after processing campaigns — kept as reference for what a populated Rysy looks like. See [`sample_state/README.md`](sample_state/README.md).
 
 ## Privacy
 
-In the live root instance, `experience/prospects/` contains personal data about real people and is gitignored (anchored to the root). Treat it accordingly.
+`experience/prospects/` contains personal data about real people and is gitignored. Treat it accordingly.
 
-`sample_state/` **deliberately retains real prospect data** — names, work emails, LinkedIn URLs, and psychological profiles — as a demonstration snapshot. This is the reason this repository must stay **private**. Do not make it public without scrubbing that PII first.
+Research is conducted through your own logged-in browser session — Rysy sees what you can see. No scraping APIs, no data brokers, no dark patterns. The line between attention and intrusion is part of the constitution.
 
 ## Required setup
 
-- Claude Code installed
-- Claude in Chrome MCP server available for the researcher to drive your logged-in browser. Until installed, the researcher falls back to WebFetch and WebSearch for what's publicly fetchable.
-- Run `/refresh-trends` before the first campaign to populate `craft/trends/current.md`.
-- Optionally seed `craft/exemplars/` with 5-10 of your team's best past cold emails (or curated public exemplars) before processing your first real campaign.
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
+- [Claude in Chrome](https://chromewebstore.google.com/detail/claude-in-chrome/) MCP server for browser-driven research. Without it, the researcher falls back to WebFetch and WebSearch for publicly available information.
+- Run `/refresh-trends` before the first campaign to populate `craft/trends/current.md`
+- Optionally seed `craft/exemplars/` with examples of great output for your use case
 
-## Phase roadmap
+## Roadmap
 
-- **Phase 1 (now)** — research → portrait → draft → witness; output JSON for human review and send
-- **Phase 2** — memory across campaigns; promoted patterns inform future drafts; cross-campaign retrieval
-- **Phase 3** — full autonomy: ICP → candidate sourcing → outreach → reply handling → follow-up cadence with guardrails
+- **Phase 1 (now)** — research → portrait → strategy → draft → witness review; output for human review
+- **Phase 2** — memory across campaigns; promoted patterns inform future work; cross-campaign retrieval
+- **Phase 3** — fuller autonomy: target identification → research → outreach → reply handling → follow-up with guardrails
 
-## The reference PDF
+## Built with
 
-`vendy.pdf` is a designed reference of the whole project, laid out in the Transilience
-design system (see `transilience/sales-doc`). Its source is `vendy.html` (self-contained
-except Google Fonts and `assets/logo.png`). To regenerate after editing the HTML, print it
-with headless Chrome:
-
-```
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=15000 \
-  --print-to-pdf=vendy.pdf "file://$PWD/vendy.html"
-```
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — the agent runtime
+- [Claude in Chrome](https://chromewebstore.google.com/detail/claude-in-chrome/) — browser automation for research
+- [Transilience](https://transilience.ai) — where Rysy was born

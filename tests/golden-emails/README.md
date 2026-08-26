@@ -1,6 +1,6 @@
 # tests/golden-emails/
 
-Hand-curated reference drafts for known prospects. These are emails Vendy *should* produce when given a known input — anchors against regression.
+Hand-curated reference drafts for known prospects. These are emails Rysy *should* produce when given a known input — anchors against regression.
 
 ## Structure
 
@@ -8,14 +8,14 @@ Each test case is a folder:
 
 ```
 tests/golden-emails/{case-slug}/
-├── input.json           # campaign + lead JSON Vendy receives
-├── expected-draft.md    # the draft Vendy should produce (or close to it)
+├── input.json           # campaign + lead JSON Rysy receives
+├── expected-draft.md    # the draft Rysy should produce (or close to it)
 ├── notes.md             # why this is the expected output; what to compare on
 ```
 
 ## Calibration
 
-Golden emails are not exact-string-match tests. Vendy's drafts will vary slightly across runs; the comparison is on:
+Golden emails are not exact-string-match tests. Rysy's drafts will vary slightly across runs; the comparison is on:
 - The register chosen (must match)
 - The opener architecture (must match)
 - The CTA weight (must match)
@@ -27,4 +27,4 @@ Drift on any of these without an explanation in `notes.md` is a signal to invest
 
 ## Initial state
 
-Empty. Add cases as Vendy ships drafts that exemplify high quality — those become the goldens for regression.
+Empty. Add cases as Rysy ships drafts that exemplify high quality — those become the goldens for regression.

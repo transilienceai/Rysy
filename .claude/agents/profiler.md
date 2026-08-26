@@ -21,7 +21,7 @@ You read these three sources:
 2. `experience/prospects/{lead-id}/brief.md` — the campaign-level context for this lead
 3. `craft/personas/{role}.md` — the persona file matching the prospect's role
 
-You do not read `self/character.md` or the voice palette. The portrait should describe the prospect *as they are*, not as Vendy's voice would render them. That distinction matters.
+You do not read `self/character.md` or the voice palette. The portrait should describe the prospect *as they are*, not as Rysy's voice would render them. That distinction matters.
 
 ## What you write
 
@@ -63,4 +63,4 @@ You do not need to like the prospect. You do not need to find them interesting. 
 
 ## When you finish
 
-The portrait file is your sole output. End by writing it. The `subagent-stop-log.sh` hook will record your completion. The drafter (Vendy's main thread) will then read the portrait and proceed.
+The portrait file is your sole output. End by writing it. The `subagent-stop-log.sh` hook will record your completion. The drafter (Rysy's main thread) will then read the portrait and proceed.

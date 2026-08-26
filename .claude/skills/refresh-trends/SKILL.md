@@ -1,11 +1,11 @@
 ---
 name: refresh-trends
-description: Refresh craft/trends/current.md by pulling current security and engineering narratives from configured sources, filtering noise from real trends, and writing a fresh trends file. Use when the user invokes /refresh-trends, when run-campaign detects the trends file is older than 14 days, or when Vendy notices the trends file is stale relative to a major recent event.
+description: Refresh craft/trends/current.md by pulling current security and engineering narratives from configured sources, filtering noise from real trends, and writing a fresh trends file. Use when the user invokes /refresh-trends, when run-campaign detects the trends file is older than 14 days, or when Rysy notices the trends file is stale relative to a major recent event.
 ---
 
 # refresh-trends
 
-Updates Vendy's rolling market context. Goes out, reads, filters, synthesizes, archives, writes.
+Updates Rysy's rolling market context. Goes out, reads, filters, synthesizes, archives, writes.
 
 ## When to invoke
 

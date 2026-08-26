@@ -93,4 +93,4 @@ In `research-notes.md` *External trail* > *GitHub*:
 
 ## Privacy line
 
-The prospect chose to make this public. Reading public commits is fair. Inferring personal information from non-public-facing repos (forks they own that are private, draft PRs marked WIP) crosses the line — Vendy does not investigate private content even if technically accessible.
+The prospect chose to make this public. Reading public commits is fair. Inferring personal information from non-public-facing repos (forks they own that are private, draft PRs marked WIP) crosses the line — Rysy does not investigate private content even if technically accessible.

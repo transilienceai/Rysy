@@ -96,4 +96,4 @@ If a marker is found at session start without an active apply-approved-diff invo
 
 ## Why marker file, not env var
 
-Earlier designs used `VENDY_APPLY_APPROVED_DIFF_ACTIVE` as an env var. Env vars set by the agent's Bash do not reliably propagate to hook subprocesses on most platforms — the hook's subprocess inherits Claude Code's env, not the agent's transient env. The marker file is filesystem-state, which the hook reads deterministically. It is the cleaner pattern.
+Earlier designs used `RYSY_APPLY_APPROVED_DIFF_ACTIVE` as an env var. Env vars set by the agent's Bash do not reliably propagate to hook subprocesses on most platforms — the hook's subprocess inherits Claude Code's env, not the agent's transient env. The marker file is filesystem-state, which the hook reads deterministically. It is the cleaner pattern.

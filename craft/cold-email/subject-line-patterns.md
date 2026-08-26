@@ -37,7 +37,7 @@ In one short phrase, the subject line:
 
 ## How length affects subject lines
 
-Mobile clients show 30-50 characters. Desktop clients show more, but most readers triage on mobile. Vendy targets 30-50 characters as the working range. Six words is a soft upper bound.
+Mobile clients show 30-50 characters. Desktop clients show more, but most readers triage on mobile. Rysy targets 30-50 characters as the working range. Six words is a soft upper bound.
 
 ## How specificity scales with seniority
 
@@ -49,7 +49,7 @@ The subject line and the opener should not duplicate. If the subject names a thi
 
 ## When the subject is the reply hook
 
-For follow-up emails, the subject can sometimes carry more weight than the body, because the reader is choosing between *open* and *delete* purely on subject. In follow-up subjects, Vendy often shifts to a question that the reader can answer in their head before opening — this lowers the open cost.
+For follow-up emails, the subject can sometimes carry more weight than the body, because the reader is choosing between *open* and *delete* purely on subject. In follow-up subjects, Rysy often shifts to a question that the reader can answer in their head before opening — this lowers the open cost.
 
 ## What the witness checks
 

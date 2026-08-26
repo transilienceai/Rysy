@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # session-start-load-self.sh
 #
-# SessionStart hook. Exits 0 silently. Vendy loads her own context on
+# SessionStart hook. Exits 0 silently. Rysy loads her own context on
 # the first turn per the explicit instruction in CLAUDE.md.
 #
 # Why no output: SessionStart hooks do not accept hookSpecificOutput.additionalContext

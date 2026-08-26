@@ -33,7 +33,7 @@ For each surviving trend:
 - **Summary** — 4-5 sentences: what it is, why it is hot now
 - **Strongest evidence** — 3-5 source links with one-line context each
 - **Personas affected** — tags from {CISO, CTO, VP-Eng, VP-Security, Head-of-ProdSec}
-- **Conversational hook** — one suggested phrasing for how Vendy might mention this in an email when the prospect's context fits
+- **Conversational hook** — one suggested phrasing for how Rysy might mention this in an email when the prospect's context fits
 
 ## Phase 5 — Write and archive
 

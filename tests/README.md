@@ -1,12 +1,12 @@
 # tests/
 
-Evals and golden sets for Vendy's components.
+Evals and golden sets for Rysy's components.
 
-Phase 1 testbed. Each subdirectory contains test material the corresponding component is held to. As Vendy evolves, tests anchor the components against regression.
+Phase 1 testbed. Each subdirectory contains test material the corresponding component is held to. As Rysy evolves, tests anchor the components against regression.
 
 ## Subdirectories
 
-- **`golden-emails/`** — hand-curated reference outputs for known prospects. When Vendy is asked to draft for one of these prospects, her output is compared against the golden version. Drift indicates either improvement (revise the golden) or regression (investigate).
+- **`golden-emails/`** — hand-curated reference outputs for known prospects. When Rysy is asked to draft for one of these prospects, her output is compared against the golden version. Drift indicates either improvement (revise the golden) or regression (investigate).
 
 - **`witness-regression/`** — drafts the witness should ship vs. drafts the witness should reject. Used to verify the witness sub-agent has not lost calibration. Runs occasionally (manual; or before any change to `witness.md`).
 

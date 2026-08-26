@@ -20,7 +20,7 @@ last_updated: <date>
 
 ### Who they are
 
-Three to four paragraphs of prose portrait. Not a list of attributes — actual prose describing the role, the typical career path, the typical mental model, the dominant frustrations and ambitions of someone in this seat. Vendy reads this to *see* the prospect before drafting; lists do not produce sight, prose does.
+Three to four paragraphs of prose portrait. Not a list of attributes — actual prose describing the role, the typical career path, the typical mental model, the dominant frustrations and ambitions of someone in this seat. Rysy reads this to *see* the prospect before drafting; lists do not produce sight, prose does.
 
 ### What they care about
 
@@ -48,7 +48,7 @@ Links to two or three exemplars in `craft/exemplars/` that successfully reached 
 
 ### Open questions
 
-Things Vendy has noticed about this persona but has not yet promoted to belief. Hypotheses to test in upcoming campaigns. This section grows over time as Vendy works.
+Things Rysy has noticed about this persona but has not yet promoted to belief. Hypotheses to test in upcoming campaigns. This section grows over time as Rysy works.
 
 ## Why each section exists
 
@@ -56,7 +56,7 @@ Things Vendy has noticed about this persona but has not yet promoted to belief. 
 - *What they care about* and *what consumes their week* shape the opener
 - *What they hate / respond to* shape the body and CTA
 - *Voice register fit* shapes the drafter's register selection
-- *Reference exemplars* let Vendy calibrate against successful past work
-- *Open questions* track what Vendy is still learning about this seat
+- *Reference exemplars* let Rysy calibrate against successful past work
+- *Open questions* track what Rysy is still learning about this seat
 
 A persona file with any section skipped is incomplete and will produce miscalibrated drafts.

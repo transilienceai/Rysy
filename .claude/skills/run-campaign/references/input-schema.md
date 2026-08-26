@@ -24,7 +24,7 @@ The campaign input has three top-level blocks: `campaign`, `sender`, `leads[]`.
     {"company": "string", "sector": "string", "outcome": "string"}
   ],
   "campaign_goal": "book-call|reply|share-doc|intro",
-  "desired_cta": "string",                 // suggested wording; Vendy may improve
+  "desired_cta": "string",                 // suggested wording; Rysy may improve
   "avoid_topics": ["string"],
   "must_reference": ["string"],
   "tone_shift": "default|formal|casual",

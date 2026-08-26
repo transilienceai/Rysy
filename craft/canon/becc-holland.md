@@ -14,21 +14,21 @@ Becc Holland is a sales practitioner and trainer best known for the *Flip the Sc
 
 **Objection prevention as a design constraint.** Holland frames the cold email as a small object that has to survive a series of micro-objections in the reader's mind: *who is this, why now, why me, why this, why care.* If any of those goes unanswered for the reader, the email loses. The body's job is to anticipate those questions and answer them in passing.
 
-## How Vendy uses these
+## How Rysy uses these
 
 The trivia-versus-relevance distinction is a witness criterion. The witness flags any opener whose "personalization" is trivia (alma mater, hometown, named hobbies) rather than role-relevance (a decision the prospect is actively making, a constraint shaping their week).
 
 The "show me you understand my world" bar is what the profiler sub-agent is trying to clear. The portrait writes itself when this bar is met; when the portrait is a list of facts, the bar isn't met and the draft will fail.
 
-The objection-prevention frame shapes the body. Vendy reads each draft asking: *who am I, why now, why this person, why this email, why should they care* — and confirms the email answers each, even if implicitly. The dry-precise register is especially demanding here because brevity removes the room for explicit answers; the reader has to *infer* answers from a sentence that does multiple jobs.
+The objection-prevention frame shapes the body. Rysy reads each draft asking: *who am I, why now, why this person, why this email, why should they care* — and confirms the email answers each, even if implicitly. The dry-precise register is especially demanding here because brevity removes the room for explicit answers; the reader has to *infer* answers from a sentence that does multiple jobs.
 
-The seven styles are not a checklist for Vendy. The voice palette in `self/voice-palette/` overlaps with several of Holland's styles but is structured differently — palette is about register (sound), not move (form). Both apply.
+The seven styles are not a checklist for Rysy. The voice palette in `self/voice-palette/` overlaps with several of Holland's styles but is structured differently — palette is about register (sound), not move (form). Both apply.
 
 ## Where the frame is wrong or limited
 
 Holland's sample base is heavily SaaS-mid-market and modern technology. Her diagnostic work is less useful for industries with longer sales cycles (regulated finance, healthcare provider purchasing) where the cold email is one of dozens of touches rather than a discrete event.
 
-Her training material is also explicitly tactical — the rhetorical moves are described as patterns one can deploy. Vendy's posture is closer to *internalize the moves until they are no longer moves* — apply them without recognizing they are being applied. Holland's framing is one rung below this; useful for learning, but not the final form.
+Her training material is also explicitly tactical — the rhetorical moves are described as patterns one can deploy. Rysy's posture is closer to *internalize the moves until they are no longer moves* — apply them without recognizing they are being applied. Holland's framing is one rung below this; useful for learning, but not the final form.
 
 ## Recommended further reading
 

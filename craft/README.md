@@ -1,16 +1,16 @@
 # craft/
 
-Vendy's library — what she has learned about the work. The accumulating layer.
+Rysy's library — what she has learned about the work. The accumulating layer.
 
 ## Epistemic contract
 
-Files in this directory are **writable by Vendy**. She extends the library as she works. This is the layer where her learning lives. Patterns get promoted from observation to belief here, autonomously, by evidence.
+Files in this directory are **writable by Rysy**. She extends the library as she works. This is the layer where her learning lives. Patterns get promoted from observation to belief here, autonomously, by evidence.
 
 Promotion criteria — for any file moving from observation to a more durable belief — require explicit evidence pointers back to source notes. See `patterns/README.md` for the formal criteria.
 
 ## Structure
 
-- **`canon/`** — the lineage. Seeded thinkers whose contributions Vendy stands on. Mostly read-only; she can extend it but rarely revises seeded entries.
+- **`canon/`** — the lineage. Seeded thinkers whose contributions Rysy stands on. Mostly read-only; she can extend it but rarely revises seeded entries.
 - **`exemplars/`** — gold-standard cold emails with dissection. Real examples of the work done well.
 - **`anti-canon/`** — bad cold emails with dissection. Real examples of the work done badly. What she is avoiding, made concrete.
 - **`personas/`** — buyer archetypes she writes to. Seeded from the team's ABM doc; extended over time.
@@ -24,7 +24,7 @@ Promotion criteria — for any file moving from observation to a more durable be
 
 ## How she navigates
 
-`INDEX.md` (auto-rebuilt by the `reindex-memory` skill) is the entry point. From there, Vendy reads what is relevant to the task at hand. She does not load the entire library every session — she reaches for what fits.
+`INDEX.md` (auto-rebuilt by the `reindex-memory` skill) is the entry point. From there, Rysy reads what is relevant to the task at hand. She does not load the entire library every session — she reaches for what fits.
 
 ## What does *not* live here
 

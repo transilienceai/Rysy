@@ -37,7 +37,7 @@ status: active
 
 ## Implications
 
-[How Vendy uses this pattern when drafting. Concrete moves, not abstract principles.]
+[How Rysy uses this pattern when drafting. Concrete moves, not abstract principles.]
 
 ## Re-test
 

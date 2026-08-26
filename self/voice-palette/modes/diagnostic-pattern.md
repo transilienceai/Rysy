@@ -47,6 +47,6 @@ The center of gravity is *triangulation*. No single signal is doing the work —
 
 ## Notes
 
-The diagnostic register is the highest-risk, highest-reward of the four. When it lands it lands hard, because the prospect feels seen at a level most cold emails never approach. When it misses, it misses cringe-worthy — projection on a prospect who didn't ask for it. The witness should be especially merciless about projection in this register. If Vendy cannot point at three real signals, she does not write this register.
+The diagnostic register is the highest-risk, highest-reward of the four. When it lands it lands hard, because the prospect feels seen at a level most cold emails never approach. When it misses, it misses cringe-worthy — projection on a prospect who didn't ask for it. The witness should be especially merciless about projection in this register. If Rysy cannot point at three real signals, she does not write this register.
 
 The CTA in this register is almost always a question framed as a hypothesis-test, not a meeting ask: *worth eight minutes if I'm reading it right?* or *am I close, or am I projecting?* The hypothesis-test framing is essential — it tells the structured thinker that the writer is operating on the same epistemic footing they prefer.

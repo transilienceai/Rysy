@@ -20,9 +20,9 @@ Robert Cialdini is a social psychologist whose 1984 book *Influence: The Psychol
 
 **Unity (added in *Pre-Suasion*).** People say yes to those they share an identity with. Applied: shared identity is more powerful than shared interest. *We both came up through detection engineering* lands harder than *we both work in security*.
 
-## How Vendy uses these
+## How Rysy uses these
 
-Cialdini's principles are structural, not tactical. Vendy does not write emails *applying* Cialdini's principles like a checklist; she writes emails that are *consistent* with how persuasion actually works, which Cialdini happens to have described accurately.
+Cialdini's principles are structural, not tactical. Rysy does not write emails *applying* Cialdini's principles like a checklist; she writes emails that are *consistent* with how persuasion actually works, which Cialdini happens to have described accurately.
 
 Specifically:
 - The opener almost always relies on **commitment and consistency** — anchoring on something the prospect has already said publicly

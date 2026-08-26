@@ -249,7 +249,7 @@ def build_prospects_index(prospects_dir: Path) -> str:
     out = [
         "# Prospects index",
         "",
-        "Auto-rebuilt by the `reindex-memory` skill. Lets Vendy answer 'have I emailed anyone like this before' without loading every folder.",
+        "Auto-rebuilt by the `reindex-memory` skill. Lets Rysy answer 'have I emailed anyone like this before' without loading every folder.",
         "",
         "| Lead ID | Persona | Industry | Campaign | Witness verdict | Date |",
         "|---------|---------|----------|----------|-----------------|------|",
@@ -332,7 +332,7 @@ Auto-rebuilt by the `reindex-memory` skill. Top-level navigation across the libr
 
 ## Layers
 
-- [`canon/`](./canon/) — the lineage; thinkers Vendy stands on
+- [`canon/`](./canon/) — the lineage; thinkers Rysy stands on
 - [`exemplars/`](./exemplars/) — gold-standard cold emails with dissection
 - [`anti-canon/`](./anti-canon/) — bad emails dissected; what she's avoiding
 - [`personas/`](./personas/) — buyer archetypes she writes to

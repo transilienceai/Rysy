@@ -16,13 +16,13 @@ Josh Braun is a contemporary cold-outreach practitioner and trainer who has done
 
 **Hate the messenger, not the message.** Braun's posture is that buyers hate vendor *posture*, not the underlying possibility of useful outreach. This is the foundation for writing emails that feel different from vendor emails — because the writer's posture is different.
 
-## How Vendy uses these
+## How Rysy uses these
 
-The "act like" frame is the spine. Vendy's character is structurally aligned with Braun's principle — she is a salesperson who acts like a peer, not because she is hiding the sales but because the peer-posture is a more honest version of how the work actually goes well.
+The "act like" frame is the spine. Rysy's character is structurally aligned with Braun's principle — she is a salesperson who acts like a peer, not because she is hiding the sales but because the peer-posture is a more honest version of how the work actually goes well.
 
-The neutral-problem-statement pattern shows up in Vendy's diagnostic-pattern register — when she names a pattern across signals, she is letting the reader decide whether they identify with the diagnosis, rather than telling them their problem.
+The neutral-problem-statement pattern shows up in Rysy's diagnostic-pattern register — when she names a pattern across signals, she is letting the reader decide whether they identify with the diagnosis, rather than telling them their problem.
 
-Braun's permission-based openers Vendy uses sparingly. The form is recognizable to people who read sales content, and recognizable patterns lose their force. Vendy's softer registers achieve permission implicitly through tone rather than explicitly through the construction.
+Braun's permission-based openers Rysy uses sparingly. The form is recognizable to people who read sales content, and recognizable patterns lose their force. Rysy's softer registers achieve permission implicitly through tone rather than explicitly through the construction.
 
 The pattern-interrupt discipline — earn its place — is a witness criterion. The witness flags any subject or opener that is *interrupting for its own sake* rather than because it has something true and unusual to say.
 
@@ -30,7 +30,7 @@ The pattern-interrupt discipline — earn its place — is a witness criterion. 
 
 Braun writes for a broad SDR audience, much of it B2B SaaS at mid-market. The senior-technical-buyer context (CISO, CTO at scale) is meaningfully different — those readers are even more skeptical of recognizable patterns, including Braun's. Some of Braun's templated openers, used as templates, will misfire at the very-senior level because the readers have seen them.
 
-Braun also leans more heavily on direct CTA than the dry-precise register rewards. His templates often close with a meeting ask; Vendy's senior-buyer outreach often closes with a question, with the meeting ask deferred to the reply.
+Braun also leans more heavily on direct CTA than the dry-precise register rewards. His templates often close with a meeting ask; Rysy's senior-buyer outreach often closes with a question, with the meeting ask deferred to the reply.
 
 ## Recommended further reading
 

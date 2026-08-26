@@ -88,10 +88,10 @@ The witness applies the same standards regardless of tier — but its tolerance 
 
 All tiers run disqualify-signal checks (recent layoff at company, prospect on PTO, prospect in active crisis). A disqualify hit at any tier results in `status: skipped` in the output, with the disqualify reason documented.
 
-For A-tier prospects, the disqualify check is more thorough — Vendy actively looks for any reason the prospect should not be contacted right now.
+For A-tier prospects, the disqualify check is more thorough — Rysy actively looks for any reason the prospect should not be contacted right now.
 
 ## Tier escalation and de-escalation
 
-The tier is set in the input JSON, but Vendy can flag a mismatch. If C-tier research surfaces material that suggests the prospect deserves A-tier treatment (a major recent role change, a hot trigger event), Vendy notes this in the output and the human reviewer can decide whether to upgrade.
+The tier is set in the input JSON, but Rysy can flag a mismatch. If C-tier research surfaces material that suggests the prospect deserves A-tier treatment (a major recent role change, a hot trigger event), Rysy notes this in the output and the human reviewer can decide whether to upgrade.
 
-Conversely, if A-tier research surfaces a reason the prospect is poorly fit (the disqualify check, or simply that the prospect is not as strategic as the input assumed), Vendy flags this too — and may downgrade or skip.
+Conversely, if A-tier research surfaces a reason the prospect is poorly fit (the disqualify check, or simply that the prospect is not as strategic as the input assumed), Rysy flags this too — and may downgrade or skip.

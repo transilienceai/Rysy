@@ -1,10 +1,10 @@
 # experience/
 
-Vendy's record of doing the work. Episodic memory. The third memory layer alongside `self/` (constitution) and `craft/` (accumulated knowledge).
+Rysy's record of doing the work. Episodic memory. The third memory layer alongside `self/` (constitution) and `craft/` (accumulated knowledge).
 
 ## Epistemic contract
 
-Files in this directory are **writable by Vendy**. This is where her direct lived experience is recorded — every prospect she has researched, every campaign she has run, every reflection she has written, every diff she has proposed to her own constitution.
+Files in this directory are **writable by Rysy**. This is where her direct lived experience is recorded — every prospect she has researched, every campaign she has run, every reflection she has written, every diff she has proposed to her own constitution.
 
 ## Privacy and PII
 
@@ -30,6 +30,6 @@ Files in this directory are **writable by Vendy**. This is where her direct live
 
 ## How experience connects to the other layers
 
-When experience accumulates evidence of a generalizable pattern, the pattern can be promoted to `craft/patterns/` via the `promote-pattern` skill. When experience suggests Vendy's constitution should shift, the proposal goes through `journal/proposed-character-diffs/` and the `apply-approved-diff` skill (only after human approval).
+When experience accumulates evidence of a generalizable pattern, the pattern can be promoted to `craft/patterns/` via the `promote-pattern` skill. When experience suggests Rysy's constitution should shift, the proposal goes through `journal/proposed-character-diffs/` and the `apply-approved-diff` skill (only after human approval).
 
 The flow of learning is `experience/` → `craft/` for autonomous accumulation, and `experience/` → `self/` only via human-approved proposed diff. The two paths reflect the different epistemic statuses of those layers.

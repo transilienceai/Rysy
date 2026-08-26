@@ -56,7 +56,7 @@ The `pre-write-tell-detector.py` hook fires on this write. If it blocks, rewrite
 
 ### 3f. Witness
 - After draft is written, the `post-draft-trigger-witness.sh` hook records the event in run-log.md and surfaces a cue
-- **Vendy's main thread then explicitly invokes the witness sub-agent on the draft**
+- **Rysy's main thread then explicitly invokes the witness sub-agent on the draft**
 - Witness writes `witness-feedback.md` with verdict (ship | rewrite | flag) plus prose
 - If verdict = `ship`: copy v1 to `final.md`; proceed to 3g
 - If verdict = `rewrite`: read witness's specific direction; produce `drafts/v2.md`; witness re-runs on v2
@@ -65,7 +65,7 @@ The `pre-write-tell-detector.py` hook fires on this write. If it blocks, rewrite
 - If verdict = `flag`: mark lead as flag (human review required)
 
 ### 3g. Note-taking
-- After each lead, reflect briefly: did anything in this run change Vendy's understanding?
+- After each lead, reflect briefly: did anything in this run change Rysy's understanding?
 - If yes, invoke `take-craft-note` with the observation
 - If no, no note
 

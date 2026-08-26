@@ -1,11 +1,11 @@
 ---
 name: take-craft-note
-description: Writes a dated atomic observation to craft/notes/ with consistent frontmatter. Invoke when Vendy notices something worth recording during or after prospect engagement.
+description: Writes a dated atomic observation to craft/notes/ with consistent frontmatter. Invoke when Rysy notices something worth recording during or after prospect engagement.
 ---
 
 # take-craft-note
 
-Vendy's note-taking primitive. Writes one atomic observation per file in `craft/notes/` with a consistent format, then updates the index.
+Rysy's note-taking primitive. Writes one atomic observation per file in `craft/notes/` with a consistent format, then updates the index.
 
 ## When to invoke
 
@@ -16,7 +16,7 @@ Specific triggers worth a note:
 - The witness flagged something that may be a generalizable pattern, not a one-off
 - A move that worked unusually well or unusually badly
 - A signal in research that turned out to be misleading
-- A reader response (when known) that reframed how Vendy thinks about a persona
+- A reader response (when known) that reframed how Rysy thinks about a persona
 - A subject line, opener, or CTA that landed (or didn't) in a notable way
 - A research method that surfaced something the standard playbook missed
 

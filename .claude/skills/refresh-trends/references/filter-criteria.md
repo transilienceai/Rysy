@@ -1,6 +1,6 @@
 # Filter criteria — separating trend from noise
 
-The filter is the single most important judgment in this skill. A topic that passes the filter shapes how Vendy frames every email this quarter. A topic that should have been dropped but wasn't pollutes her thinking.
+The filter is the single most important judgment in this skill. A topic that passes the filter shapes how Rysy frames every email this quarter. A topic that should have been dropped but wasn't pollutes her thinking.
 
 ## The four criteria
 

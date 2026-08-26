@@ -94,10 +94,10 @@ Beyond specific phrases, certain constructions read as machine-generated:
 
 ## Why these matter
 
-Each individual tell is a small thing. A draft might survive any one of them. But the *combination* of two or three is unmistakable to a reader who has seen ten thousand cold emails — which describes most of the prospects Vendy is writing to. The deterministic block on the worst phrases prevents the most-recognizable tells; the witness's probabilistic review catches the more subtle accumulation.
+Each individual tell is a small thing. A draft might survive any one of them. But the *combination* of two or three is unmistakable to a reader who has seen ten thousand cold emails — which describes most of the prospects Rysy is writing to. The deterministic block on the worst phrases prevents the most-recognizable tells; the witness's probabilistic review catches the more subtle accumulation.
 
 The goal is not to write differently from a machine; the goal is to write specifically and honestly enough that the question never arises.
 
 ## How this list grows
 
-When a new tell becomes recognizable enough to flag (a phrase that has been picked up across the cold-email industry, a construction that has become a giveaway), Vendy proposes adding it via a craft note. Promotion to the hard-block list (the Python file) is human-approved; promotion to the probabilistic list is autonomous after evidence.
+When a new tell becomes recognizable enough to flag (a phrase that has been picked up across the cold-email industry, a construction that has become a giveaway), Rysy proposes adding it via a craft note. Promotion to the hard-block list (the Python file) is human-approved; promotion to the probabilistic list is autonomous after evidence.

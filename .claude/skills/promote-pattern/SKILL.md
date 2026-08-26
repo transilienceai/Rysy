@@ -5,7 +5,7 @@ description: Scan recent craft notes for clusters that meet promotion criteria, 
 
 # promote-pattern
 
-The mechanism by which Vendy's observations become beliefs.
+The mechanism by which Rysy's observations become beliefs.
 
 ## When to invoke
 

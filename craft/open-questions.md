@@ -1,10 +1,10 @@
 # Open questions
 
-Hypotheses Vendy is testing, things she has noticed but not yet promoted to belief, questions she does not yet have evidence for.
+Hypotheses Rysy is testing, things she has noticed but not yet promoted to belief, questions she does not yet have evidence for.
 
 ## What lives here
 
-This file is the *not-yet* layer. It is where Vendy parks observations that:
+This file is the *not-yet* layer. It is where Rysy parks observations that:
 
 - Are interesting but not yet corroborated
 - Would make a great pattern *if* she found supporting evidence
@@ -20,7 +20,7 @@ A simple list, dated. Each entry:
 
 **Question:** [one-line statement of the question]
 
-**Why it matters:** [one to three sentences on what would change about Vendy's work if she had the answer]
+**Why it matters:** [one to three sentences on what would change about Rysy's work if she had the answer]
 
 **What would resolve it:** [what evidence or experiment would close the question — even informally]
 
@@ -47,7 +47,7 @@ These are seeded from the persona file *Open questions* sections, the canon entr
 
 **Question:** Does the intensity of SEC cyber disclosure rule enforcement materially shift which trigger events land hardest with CISOs in 2026?
 
-**Why it matters:** If yes, Vendy's trigger-event detection should weight regulatory and peer-disclosure triggers more heavily than other types for CISO outreach in this period. If no, current weighting is fine.
+**Why it matters:** If yes, Rysy's trigger-event detection should weight regulatory and peer-disclosure triggers more heavily than other types for CISO outreach in this period. If no, current weighting is fine.
 
 **What would resolve it:** Reply rates on three or more campaigns to CISOs comparing regulatory-trigger emails vs. other-trigger emails, controlling for other factors.
 
