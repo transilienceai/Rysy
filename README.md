@@ -7,7 +7,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/transilienceai/Rysy)](https://github.com/transilienceai/Rysy/stargazers)
 [![Claude AI](https://img.shields.io/badge/Powered%20by-Claude%20AI-blue)](https://claude.ai)
 
-**An open-source Claude Code agent that does the homework before you reach out to anyone — researches people, builds psychological portraits, and crafts approaches calibrated to the person and your intent — from the team at [Transilience.ai](https://www.transilience.ai)**
+**An open-source AI agent that does the homework before you reach out to anyone — researches people, builds psychological portraits, and crafts approaches calibrated to the person and your intent — from the team at [Transilience.ai](https://www.transilience.ai)**
 
 [Quick Start](#-quick-start) | [Personas](#-who-its-for) | [Architecture](#-architecture) | [Customization](#-customization) | [Website](https://www.transilience.ai)
 
@@ -17,7 +17,7 @@
 
 ## Overview
 
-**Rysy** is a Claude Code agent that researches people using browser automation (LinkedIn, the web), builds psychological portraits from public signals, and helps you craft an approach calibrated to the person and your intent — whether you're pitching an investor, applying to a job, preparing for a podcast interview, or reaching out to a customer.
+**Rysy** is an AI agent that researches people using browser automation (LinkedIn, the web), builds psychological portraits from public signals, and helps you craft an approach calibrated to the person and your intent — whether you're pitching an investor, applying to a job, preparing for a podcast interview, or reaching out to a customer.
 
 The core pipeline: **research** → **profile** → **strategize** → **witness review**.
 
